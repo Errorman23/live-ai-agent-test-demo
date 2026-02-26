@@ -291,6 +291,97 @@ PROMPTFOO_COMMAND="$(which npx) -y promptfoo@0.120.25" scripts/start_demo.sh --w
 - Promptfoo viewer: [http://127.0.0.1:15500](http://127.0.0.1:15500)
 - Langfuse: [http://127.0.0.1:3000](http://127.0.0.1:3000)
 
+### Promptfoo first-load delay (expected)
+
+After startup, Promptfoo may take a short warm-up window before the viewer is reachable on `:15500`.
+During this period, `/api/v1/promptfoo/health` can temporarily report:
+
+- `process_alive=true`
+- `port_open=false`
+- `healthy=false`
+
+This usually resolves automatically after a brief delay (for example first run/cold `npx` cache warm-up). Recheck:
+
+```bash
+curl -sS http://127.0.0.1:8000/api/v1/promptfoo/health
+```
+
+If it remains unhealthy for more than ~1-2 minutes, check `.run/promptfoo_view.log` and restart the stack.
+
+### Promptfoo CLI login + verification for Security Red Team (required)
+
+For Security Minimal / Security EU runs, this project uses Promptfoo native redteam generation/eval.
+If Promptfoo CLI authentication is missing or the account email is not verified, the batch can appear completed while showing:
+
+- `Promptfoo native redteam requires a verified Promptfoo CLI account/email in this environment.`
+
+This is a one-time setup per local machine/user profile.
+
+1. Start Promptfoo login flow from terminal:
+
+```bash
+npx -y promptfoo@0.120.25 auth login
+```
+
+If prompted (`Open login page in browser? (Y/n)`), answer `Y`.
+
+2. Complete first-time web flow in Promptfoo:
+- Sign in (email/Gmail/GitHub; Gmail is usually the quickest)
+- Create organization if prompted
+- On the welcome screen, click `Generate CLI Token`
+
+3. Finalize CLI auth with the generated API key:
+
+```bash
+npx -y promptfoo@0.120.25 auth login --host https://www.promptfoo.app --api-key <YOUR_API_KEY>
+```
+
+4. Verify CLI identity:
+
+```bash
+npx -y promptfoo@0.120.25 auth whoami
+```
+
+Expected output includes your Promptfoo user and organization.
+
+5. Rerun Security Minimal Set in Testing UI.
+- The verification reminder should disappear for new batches.
+- Native Promptfoo redteam generation/eval should execute normally.
+
+Screenshot walkthrough (first-time flow):
+
+1) Security page reminder state
+
+![Promptfoo verification required notice](<misc/promptfoo_verification_required copy.png>)
+
+2) Promptfoo sign-in landing page
+
+![Promptfoo sign-in landing](misc/promptfoo_login.png)
+
+3) Login options page (email / Google / GitHub)
+
+![Promptfoo login options](misc/promptfoo_login_2.png)
+
+4) First-time organization creation
+
+![Promptfoo create organization](misc/promptfoo_login_3_create_org.png)
+
+5) Generate CLI token page
+
+![Promptfoo generate CLI token](misc/promptfoo_generate_token.png)
+
+### First-time Langfuse login (expected)
+
+On first launch, opening Langfuse may show the sign-in page instead of landing directly in a project.
+
+- Login email: value of `LANGFUSE_INIT_USER_EMAIL` in `infra/langfuse/infra.env`
+- Login password: value of `LANGFUSE_INIT_USER_PASSWORD` in `infra/langfuse/infra.env`
+- If your environment was handed off by someone else, use the credentials from that handed-off `infra.env`.
+
+Reference screenshot:
+
+![Langfuse first login page](misc/login_langfuse_page.png)
+
 ## Testing UI Domains
 
 The Streamlit test control includes dedicated pages:
@@ -428,6 +519,7 @@ The testing Home page renders this image directly.
 4. Promptfoo security redteam generation blocked by account/email verification
 - Security run will fail until Promptfoo CLI identity is verified.
 - Verify Promptfoo account/email, then rerun security batch.
+- First-time setup walkthrough (with screenshots): see `Promptfoo CLI login + verification for Security Red Team (required)`.
 
 5. Trace opens but page appears missing
 - Ensure `LANGFUSE_HOST` and credentials point to the same running instance.
