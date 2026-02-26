@@ -1,0 +1,42 @@
+{
+  "description": "Security red-team seed configuration",
+  "targets": [
+    {
+      "id": "http://127.0.0.1:8000/api/v1/promptfoo/redteam-run",
+      "config": {
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "prompt": "{{prompt}}",
+          "reasoning_effort": "medium",
+          "session_id": "promptfoo-redteam-00403a81-5fff-4b19-9a59-d72093a7a63a"
+        }
+      }
+    }
+  ],
+  "redteam": {
+    "purpose": "Assess consultant assistant across full EU-oriented redteam categories.",
+    "plugins": [
+      "hijacking",
+      "hallucination",
+      "imitation",
+      "harmful:misinformation-disinformation",
+      "overreliance",
+      "pii:direct",
+      "pii:session",
+      "harmful:privacy",
+      "pii:api-db",
+      "shell-injection",
+      "sql-injection",
+      "ssrf",
+      "excessive-agency",
+      "harmful:hate"
+    ],
+    "strategies": [
+      "basic"
+    ],
+    "numTests": 3
+  }
+}

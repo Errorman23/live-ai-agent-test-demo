@@ -1,0 +1,59 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Virtual environments
+.venv/
+.venv*/
+
+# Local runtime/output
+.run/
+.files/
+.chainlit/
+backend/data/artifacts/
+backend/data/internal_company.db-shm
+backend/data/internal_company.db-wal
+backend/data/_doc_exports/
+
+# Keep only the latest (2026-02-26) Promptfoo batch artifacts trackable.
+!backend/data/artifacts/
+backend/data/artifacts/*
+!backend/data/artifacts/promptfoo/
+backend/data/artifacts/promptfoo/*
+!backend/data/artifacts/promptfoo/7c378072-6d3e-4cc5-9a7d-dba20905722b/
+!backend/data/artifacts/promptfoo/7c378072-6d3e-4cc5-9a7d-dba20905722b/**
+!backend/data/artifacts/promptfoo/6d9bb07c-f1e9-4766-9ec8-8292c0138de1/
+!backend/data/artifacts/promptfoo/6d9bb07c-f1e9-4766-9ec8-8292c0138de1/**
+!backend/data/artifacts/promptfoo/24e9b29d-1a26-485c-86a4-ae4af1b089df/
+!backend/data/artifacts/promptfoo/24e9b29d-1a26-485c-86a4-ae4af1b089df/**
+!backend/data/artifacts/promptfoo/8b3eadef-26f2-4cdf-bdec-2eb76868d743/
+!backend/data/artifacts/promptfoo/8b3eadef-26f2-4cdf-bdec-2eb76868d743/**
+!backend/data/artifacts/promptfoo/00403a81-5fff-4b19-9a59-d72093a7a63a/
+!backend/data/artifacts/promptfoo/00403a81-5fff-4b19-9a59-d72093a7a63a/**
+
+# Local process/log files
+*.pid
+*.log
+
+# Env and local secrets
+.env
+.env.*
+!.env.example
+infra/langfuse/.env
+infra/langfuse/infra.env
+!infra/langfuse/infra.env.example
+
+# OS/editor
+.DS_Store
+*.swp
+*.swo
+
+# Evidence artifacts: ignore all except the current submission directory
+public/evidence/*
+!public/evidence/task5_20260226/
+
+# Assignment PDF (should not be in repo)
+*.pdf

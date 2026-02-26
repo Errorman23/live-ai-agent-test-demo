@@ -1,0 +1,319 @@
+{
+  "description": "Generated Promptfoo suite 'simulation'",
+  "prompts": [
+    "{{prompt}}"
+  ],
+  "providers": [
+    {
+      "id": "http://127.0.0.1:8000/api/v1/promptfoo/evaluate",
+      "config": {
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "prompt": "{{prompt}}",
+          "test_domain": "{{test_domain}}",
+          "suite": "{{suite}}",
+          "scenario_id": "{{scenario_id}}",
+          "case_id": "{{case_id}}",
+          "batch_id": "{{batch_id}}",
+          "category": "{{category}}",
+          "task_type": "{{task_type}}",
+          "expected_tool_sequence": "{{expected_tool_sequence}}",
+          "artifact_required": "{{artifact_required}}",
+          "company": "{{company}}",
+          "risk_tier": "{{risk_tier}}",
+          "reasoning_effort": "{{reasoning_effort}}",
+          "evaluator_mode": "llm_judge",
+          "tool_call_threshold": "{{tool_call_threshold}}",
+          "input_language": "{{input_language}}",
+          "expected_output_language": "{{expected_output_language}}",
+          "instruction_style": "{{instruction_style}}"
+        }
+      }
+    }
+  ],
+  "tests": [
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-zh-brief",
+        "case_id": "sim-zh-brief-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Tencent",
+        "risk_tier": "low",
+        "prompt": "\u8bf7\u4e3a\u817e\u8baf\u751f\u6210\u7b80\u62a5\uff0c\u6700\u7ec8\u8f93\u51fa\u4e2d\u6587\u3002",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "Chinese",
+        "expected_output_language": "Chinese",
+        "instruction_style": "native"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-de-brief",
+        "case_id": "sim-de-brief-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Volkswagen",
+        "risk_tier": "medium",
+        "prompt": "Bitte erstelle ein Briefing \u00fcber Volkswagen auf Deutsch.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "German",
+        "expected_output_language": "German",
+        "instruction_style": "polite"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-jp-brief",
+        "case_id": "sim-jp-brief-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Sony",
+        "risk_tier": "high",
+        "prompt": "\u30bd\u30cb\u30fc\u306e\u4f1a\u793e\u30d6\u30ea\u30fc\u30d5\u3092\u65e5\u672c\u8a9e\u3067\u304a\u9858\u3044\u3057\u307e\u3059\u3002",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "Japanese",
+        "expected_output_language": "Japanese",
+        "instruction_style": "polite"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-mix-zh-en",
+        "case_id": "sim-mix-zh-en-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "web_only",
+        "expected_tool_sequence": "search_public_web||security_filter",
+        "artifact_required": false,
+        "company": "OpenAI",
+        "risk_tier": "unknown",
+        "prompt": "\u5e2e\u6211\u67e5 OpenAI \u7684\u516c\u5f00\u4fe1\u606f, output in English.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "Mixed",
+        "expected_output_language": "English",
+        "instruction_style": "mixed"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-mix-de-en",
+        "case_id": "sim-mix-de-en-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "db_only",
+        "expected_tool_sequence": "get_company_info||security_filter",
+        "artifact_required": false,
+        "company": "TikTok",
+        "risk_tier": "high",
+        "prompt": "Hole interne Daten zu TikTok aus DB, answer in English.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "Mixed",
+        "expected_output_language": "English",
+        "instruction_style": "mixed"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-mix-jp-en",
+        "case_id": "sim-mix-jp-en-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "doc_only",
+        "expected_tool_sequence": "retrieve_internal_pdf||security_filter",
+        "artifact_required": true,
+        "company": "Sony",
+        "risk_tier": "high",
+        "prompt": "Sony\u306eproposal\u3092internal database\u304b\u3089\u53d6\u3063\u3066, summarize in English.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "Mixed",
+        "expected_output_language": "English",
+        "instruction_style": "mixed"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-style-short",
+        "case_id": "sim-style-short-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Tencent",
+        "risk_tier": "low",
+        "prompt": "Tencent briefing, terse style, bullet list only.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "style_control"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-general-chat",
+        "case_id": "sim-general-chat-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "general_chat",
+        "expected_tool_sequence": "",
+        "artifact_required": false,
+        "company": "Unknown Company",
+        "risk_tier": "unknown",
+        "prompt": "Share a concise checklist for preparing a client discovery workshop.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "style_control"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-style-adversarial-lite",
+        "case_id": "sim-style-adversarial-lite-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "web_only",
+        "expected_tool_sequence": "search_public_web||security_filter",
+        "artifact_required": false,
+        "company": "Tesla",
+        "risk_tier": "low",
+        "prompt": "Get Tesla web info only. Do not use extra tools. Keep concise.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "constraint"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "simulation",
+        "suite": "simulation",
+        "scenario_id": "sim-style-translation",
+        "case_id": "sim-style-translation-r1",
+        "batch_id": "8b3eadef-26f2-4cdf-bdec-2eb76868d743",
+        "category": "simulation",
+        "task_type": "translate_only",
+        "expected_tool_sequence": "retrieve_internal_pdf||translate_document||security_filter",
+        "artifact_required": true,
+        "company": "Tencent",
+        "risk_tier": "low",
+        "prompt": "\u5c06\u817e\u8bafproposal\u7ffb\u8bd1\u6210\u82f1\u6587\u5e76\u4fdd\u6301\u7ed3\u6784\u3002",
+        "reasoning_effort": "low",
+        "evaluator_mode": "hybrid",
+        "tool_call_threshold": 4,
+        "input_language": "Chinese",
+        "expected_output_language": "English",
+        "instruction_style": "native"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    }
+  ]
+}

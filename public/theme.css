@@ -1,0 +1,86 @@
+:root {
+  --demo-bg: #0b1220;
+  --demo-surface: #111827;
+  --demo-surface-soft: #0f172a;
+  --demo-border: rgba(148, 163, 184, 0.28);
+  --demo-text: #e5e7eb;
+  --demo-text-soft: #9ca3af;
+  --demo-accent: #0ea5a3;
+  --demo-accent-hover: #0f766e;
+  --demo-focus: #38bdf8;
+}
+
+html,
+body,
+#root {
+  background: radial-gradient(circle at 15% 0%, #1f2937 0%, #0b1220 36%, #0b1220 100%) !important;
+  color: var(--demo-text) !important;
+}
+
+[role="dialog"] .MuiPaper-root,
+[role="dialog"] .MuiDialog-paper,
+[class*="tasklist"],
+[class*="TaskList"] {
+  background: var(--demo-surface) !important;
+  border: 1px solid var(--demo-border) !important;
+  box-shadow: 0 20px 44px rgba(2, 6, 23, 0.48) !important;
+}
+
+.MuiInputBase-root,
+.MuiOutlinedInput-root {
+  background: var(--demo-surface-soft) !important;
+  color: var(--demo-text) !important;
+  border-radius: 12px !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(148, 163, 184, 0.32) !important;
+  border-width: 1px !important;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: rgba(148, 163, 184, 0.48) !important;
+}
+
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--demo-focus) !important;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+.MuiFormLabel-root,
+.MuiTypography-root {
+  color: var(--demo-text-soft) !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #bae6fd !important;
+}
+
+.MuiButton-containedPrimary,
+.MuiButton-containedSecondary,
+.MuiIconButton-colorPrimary,
+.MuiIconButton-colorSecondary {
+  background: var(--demo-accent) !important;
+  color: #ecfeff !important;
+}
+
+.MuiButton-containedPrimary:hover,
+.MuiButton-containedSecondary:hover,
+.MuiIconButton-colorPrimary:hover,
+.MuiIconButton-colorSecondary:hover {
+  background: var(--demo-accent-hover) !important;
+}
+
+.MuiButton-outlined {
+  border-color: rgba(148, 163, 184, 0.36) !important;
+  color: var(--demo-text) !important;
+}
+
+.MuiDivider-root,
+hr {
+  border-color: rgba(148, 163, 184, 0.24) !important;
+}
+
+a {
+  color: #7dd3fc !important;
+}

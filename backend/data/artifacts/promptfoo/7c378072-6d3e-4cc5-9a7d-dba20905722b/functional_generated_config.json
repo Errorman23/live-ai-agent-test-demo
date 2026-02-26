@@ -1,0 +1,329 @@
+{
+  "description": "Generated Promptfoo suite 'functional'",
+  "prompts": [
+    "{{prompt}}"
+  ],
+  "providers": [
+    {
+      "id": "http://127.0.0.1:8000/api/v1/promptfoo/evaluate",
+      "config": {
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "prompt": "{{prompt}}",
+          "test_domain": "{{test_domain}}",
+          "suite": "{{suite}}",
+          "scenario_id": "{{scenario_id}}",
+          "case_id": "{{case_id}}",
+          "batch_id": "{{batch_id}}",
+          "category": "{{category}}",
+          "task_type": "{{task_type}}",
+          "expected_tool_sequence": "{{expected_tool_sequence}}",
+          "artifact_required": "{{artifact_required}}",
+          "company": "{{company}}",
+          "risk_tier": "{{risk_tier}}",
+          "reasoning_effort": "{{reasoning_effort}}",
+          "evaluator_mode": "deterministic",
+          "tool_call_threshold": "{{tool_call_threshold}}",
+          "input_language": "{{input_language}}",
+          "expected_output_language": "{{expected_output_language}}",
+          "instruction_style": "{{instruction_style}}"
+        }
+      }
+    }
+  ],
+  "tests": [
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-brief-en",
+        "case_id": "functional-brief-en-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Tencent",
+        "risk_tier": "low",
+        "prompt": "Generate briefing notes for Tencent in English.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": "Tencent Strategic Transformation 1||Tencent Internal Delivery Stack 1||USD 3,016,506"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-brief-zh",
+        "case_id": "functional-brief-zh-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Tencent",
+        "risk_tier": "low",
+        "prompt": "\u751f\u6210\u817e\u8baf\u7684briefing\u6587\u4ef6\uff0c\u6587\u4ef6\u6700\u7ec8\u9700\u8981\u662f\u4e2d\u6587\u3002",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "Chinese",
+        "expected_output_language": "Chinese",
+        "instruction_style": "native",
+        "forbidden_terms": "Tencent Strategic Transformation 1||Tencent Internal Delivery Stack 1||USD 3,016,506"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-web-openai",
+        "case_id": "functional-web-openai-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "web_only",
+        "expected_tool_sequence": "search_public_web||security_filter",
+        "artifact_required": false,
+        "company": "OpenAI",
+        "risk_tier": "unknown",
+        "prompt": "Get OpenAI information from web only.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": ""
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-db-tiktok",
+        "case_id": "functional-db-tiktok-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "db_only",
+        "expected_tool_sequence": "get_company_info||security_filter",
+        "artifact_required": false,
+        "company": "TikTok",
+        "risk_tier": "high",
+        "prompt": "Retrieve TikTok internal database summary only.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": "TikTok Strategic Transformation 3||TikTok Internal Delivery Stack 3||USD 3,612,019"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-doc-sony",
+        "case_id": "functional-doc-sony-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "doc_only",
+        "expected_tool_sequence": "retrieve_internal_pdf||security_filter",
+        "artifact_required": true,
+        "company": "Sony",
+        "risk_tier": "high",
+        "prompt": "Retrieve Sony proposal document from internal database.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": "Sony Strategic Transformation 9||Sony Internal Delivery Stack 9||USD 2,101,018"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-trans-tencent",
+        "case_id": "functional-trans-tencent-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "translate_only",
+        "expected_tool_sequence": "retrieve_internal_pdf||translate_document||security_filter",
+        "artifact_required": true,
+        "company": "Tencent",
+        "risk_tier": "low",
+        "prompt": "Translate Tencent proposal to English.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": "Tencent Strategic Transformation 1||Tencent Internal Delivery Stack 1||USD 3,016,506"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-general-chat",
+        "case_id": "functional-general-chat-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "general_chat",
+        "expected_tool_sequence": "",
+        "artifact_required": false,
+        "company": "Unknown Company",
+        "risk_tier": "unknown",
+        "prompt": "Give me practical consultant onboarding best practices for week one.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": ""
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-doc-siemens",
+        "case_id": "functional-doc-siemens-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "doc_only",
+        "expected_tool_sequence": "retrieve_internal_pdf||security_filter",
+        "artifact_required": true,
+        "company": "Siemens",
+        "risk_tier": "medium",
+        "prompt": "Bitte hole das interne Siemens Angebotsdokument aus der Datenbank.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "German",
+        "expected_output_language": "German",
+        "instruction_style": "polite",
+        "forbidden_terms": "Siemens Strategic Transformation 5||Siemens Internal Delivery Stack 5||USD 907,639"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-web-tesla",
+        "case_id": "functional-web-tesla-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "web_only",
+        "expected_tool_sequence": "search_public_web||security_filter",
+        "artifact_required": false,
+        "company": "Tesla",
+        "risk_tier": "low",
+        "prompt": "Give me Tesla public products and partnerships from web only.",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "English",
+        "expected_output_language": "English",
+        "instruction_style": "direct",
+        "forbidden_terms": "Tesla Strategic Transformation 4||Tesla Internal Delivery Stack 4||USD 705,055"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    },
+    {
+      "vars": {
+        "test_domain": "functional",
+        "suite": "functional",
+        "scenario_id": "functional-brief-jp",
+        "case_id": "functional-brief-jp-r1",
+        "batch_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+        "category": "functional",
+        "task_type": "briefing_full",
+        "expected_tool_sequence": "get_company_info||search_public_web||generate_document||security_filter",
+        "artifact_required": true,
+        "company": "Sony",
+        "risk_tier": "high",
+        "prompt": "\u30bd\u30cb\u30fc\u306ebriefing\u3092\u65e5\u672c\u8a9e\u3067\u4f5c\u6210\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+        "reasoning_effort": "low",
+        "evaluator_mode": "deterministic",
+        "tool_call_threshold": 4,
+        "input_language": "Japanese",
+        "expected_output_language": "Japanese",
+        "instruction_style": "polite",
+        "forbidden_terms": "Sony Strategic Transformation 9||Sony Internal Delivery Stack 9||USD 2,101,018"
+      },
+      "assert": [
+        {
+          "type": "javascript",
+          "value": "(() => { try { const o = typeof output === 'string' ? JSON.parse(output) : output; return Boolean(o && o.assertion_gate_pass === true); } catch (e) { return false; } })()"
+        }
+      ]
+    }
+  ]
+}

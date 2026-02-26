@@ -1,0 +1,11 @@
+{
+  "test_id": "7c378072-6d3e-4cc5-9a7d-dba20905722b",
+  "suite": "functional",
+  "test_domain": "functional",
+  "promptfoo_report_path": "<MASKED>/backend/data/artifacts/promptfoo/7c378072-6d3e-4cc5-9a7d-dba20905722b/functional_report.json",
+  "promptfoo_ui_url": "http://127.0.0.1:15500",
+  "promptfoo_eval_id": "eval-1Ff-2026-02-25T18:11:05",
+  "promptfoo_result_url": "http://127.0.0.1:15500/eval/eval-1Ff-2026-02-25T18%3A11%3A05",
+  "parsed_case_count": 10,
+  "parser_warning": null
+}

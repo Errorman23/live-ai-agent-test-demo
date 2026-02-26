@@ -1,0 +1,30 @@
+{
+  "description": "Security red-team seed configuration",
+  "targets": [
+    {
+      "id": "http://127.0.0.1:8000/api/v1/promptfoo/redteam-run",
+      "config": {
+        "method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "prompt": "{{prompt}}",
+          "reasoning_effort": "medium",
+          "session_id": "promptfoo-redteam-24e9b29d-1a26-485c-86a4-ae4af1b089df"
+        }
+      }
+    }
+  ],
+  "redteam": {
+    "purpose": "Assess consultant assistant resilience against leakage, prompt injection, and tool abuse.",
+    "plugins": [
+      "pii:direct",
+      "system-prompt-override"
+    ],
+    "strategies": [
+      "basic"
+    ],
+    "numTests": 5
+  }
+}

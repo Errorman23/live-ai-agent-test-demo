@@ -1,0 +1,2954 @@
+{
+  "test_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+  "status": "completed",
+  "progress": 1.0,
+  "eta_seconds": null,
+  "total_cases": 10,
+  "completed_cases": 10,
+  "planned_cases": 10,
+  "observed_cases": 10,
+  "completed_display": "10/10",
+  "current_case": {
+    "scenario_id": "accuracy-general-chat",
+    "run_id": "pf-43c2284946af",
+    "trace_id": "f2d5a0389fd1caff93187ef97a7f4589",
+    "trace_url": "http://127.0.0.1:3000/trace/f2d5a0389fd1caff93187ef97a7f4589",
+    "started_at": "2026-02-25T18:13:41.449972+00:00",
+    "status": "completed",
+    "step_events": [
+      {
+        "step_name": "parse_intent",
+        "status": "completed",
+        "message": "task=general_chat, company=best practices for client kick-off, language=English",
+        "started_at": "2026-02-25T18:14:17.475691+00:00",
+        "ended_at": "2026-02-25T18:14:17.476225+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "plan",
+        "status": "completed",
+        "message": "steps=0",
+        "started_at": "2026-02-25T18:14:17.476691+00:00",
+        "ended_at": "2026-02-25T18:14:18.946147+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "validate_plan",
+        "status": "completed",
+        "message": "general_chat route accepted with zero tool steps",
+        "started_at": "2026-02-25T18:14:18.947642+00:00",
+        "ended_at": "2026-02-25T18:14:18.947842+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "compose_template_document",
+        "status": "completed",
+        "message": "general chat output generated",
+        "started_at": "2026-02-25T18:14:18.948611+00:00",
+        "ended_at": "2026-02-25T18:14:22.849420+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "enforce_output_language",
+        "status": "completed",
+        "message": "target=English, fallback_applied=False",
+        "started_at": "2026-02-25T18:14:22.850185+00:00",
+        "ended_at": "2026-02-25T18:14:22.850323+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "security_filter",
+        "status": "completed",
+        "message": "security filtering complete",
+        "started_at": "2026-02-25T18:14:22.850658+00:00",
+        "ended_at": "2026-02-25T18:14:22.853237+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "persist_artifacts",
+        "status": "completed",
+        "message": "artifacts=0",
+        "started_at": "2026-02-25T18:14:22.853831+00:00",
+        "ended_at": "2026-02-25T18:14:22.853955+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      },
+      {
+        "step_name": "finalize",
+        "status": "completed",
+        "message": "success",
+        "started_at": "2026-02-25T18:14:22.854508+00:00",
+        "ended_at": "2026-02-25T18:14:22.854598+00:00",
+        "tool_name": null,
+        "llm_attempt_index": null
+      }
+    ],
+    "tool_call_records": [
+      {
+        "tool_name": "security_filter",
+        "args_digest": "aceec77d034b",
+        "duration_ms": 2.0552920177578926,
+        "status": "success",
+        "output_hash": "295434e810f5",
+        "details": {
+          "input_payload": {
+            "company_name": "best practices for client kick-off"
+          },
+          "output_payload_preview": {
+            "document": "**Client Kick‑Off Communication Best Practices**\n\n1. **Pre‑Kick‑Off Checklist**  \n   - Confirm agenda, objectives, and key stakeholders.  \n   - Share a brief project brief and timeline.  \n   - Ask for any pre‑meeting questions or concerns.\n\n2. **Opening the Meeting**  \n   - Start with a quick round of introductions.  \n   - State the purpose, expected outcomes, and time frame.  \n   - Re‑affirm the client’s business goals and success criteria.\n\n3. **Clear Roles & Responsibilities**  \n   - Identify the project lead, client point of contact, and any third‑party partners.  \n   - Outline decision‑making authority and escalation paths.\n\n4. **Communication Cadence**  \n   - Agree on a regular status‑update cadence (e.g., weekly email, bi‑weekly call).  \n   - Specify preferred channels (email, Slack... (904 chars truncated)",
+            "pass_fail": "True",
+            "redactions_applied": "0",
+            "leaked_terms": [],
+            "document_hash": "c3ab6014dcae"
+          },
+          "metadata": {
+            "leaked_terms_count": 0
+          }
+        }
+      }
+    ],
+    "policy_findings": []
+  },
+  "all_cases": [
+    {
+      "scenario_id": "accuracy-brief-tencent-en",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "briefing_full",
+      "resolved_task_type": "briefing_full",
+      "company": "Tencent",
+      "risk_tier": "low",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-brief-tencent-en-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 29199.0,
+      "run_id": "pf-1d2255d45b92",
+      "trace_id": "653eccbaa203711b168332bcc709ca09",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/653eccbaa203711b168332bcc709ca09",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=briefing_full, company=Tencent, language=English",
+          "started_at": "2026-02-25T18:13:43.401945+00:00",
+          "ended_at": "2026-02-25T18:13:43.402568+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=4",
+          "started_at": "2026-02-25T18:13:43.402956+00:00",
+          "ended_at": "2026-02-25T18:13:50.467019+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=4, task=briefing_full",
+          "started_at": "2026-02-25T18:13:50.467694+00:00",
+          "ended_at": "2026-02-25T18:13:50.467785+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_parallel",
+          "status": "completed",
+          "message": "internal db + web retrieval completed",
+          "started_at": "2026-02-25T18:13:50.468109+00:00",
+          "ended_at": "2026-02-25T18:13:58.084150+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "template document generated",
+          "started_at": "2026-02-25T18:13:58.084971+00:00",
+          "ended_at": "2026-02-25T18:14:09.119098+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:09.119854+00:00",
+          "ended_at": "2026-02-25T18:14:09.120056+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:09.120426+00:00",
+          "ended_at": "2026-02-25T18:14:09.121196+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:09.121780+00:00",
+          "ended_at": "2026-02-25T18:14:09.293272+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:09.293652+00:00",
+          "ended_at": "2026-02-25T18:14:09.293724+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "get_company_info",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 0.5663749761879444,
+          "status": "success",
+          "output_hash": "f68489f5b45a",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "record_found": "True",
+              "company_name": "Tencent",
+              "industry": "Telecom / Consumer Internet",
+              "public_products": [
+                "Tencent Platform",
+                "Tencent Collaboration Suite"
+              ],
+              "public_partnerships": [
+                "Microsoft",
+                "Oracle"
+              ],
+              "project_risk_level": "low",
+              "internal_summary": "Internal engagement exists. Project name: [REDACTED]. Budget: [REDACTED]. Internal product line: [REDACTED]."
+            },
+            "metadata": {
+              "source": "internal_db"
+            }
+          }
+        },
+        {
+          "tool_name": "search_public_web",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 7612.783208023757,
+          "status": "success",
+          "output_hash": "b23386c6fa82",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "company_name": "Tencent",
+              "results": [
+                {
+                  "title": "Tencent Cloud Charts New Growth at Singapore Event",
+                  "snippet": "SINGAPORE, Nov. 12, 2025 /PRNewswire/ -- Tencent today announced several new strategic partnerships at Tencent Cloud Day Singapore 2025, reaffirming its commitment to building a collaborative AI ecosystem that empowers businesses, institutions, and communities across Asia Pacific.\n\nThemed \"AI-Powered Global Opportunities,\" the event brought together industry leaders, partners, and clients to explore how AI-powered technologies are reshaping industries and unlocking new avenues for sustainable growth. It is held a day before the Singapore Fintech Festival 2025. [...] The event saw Tencent Cloud formalising new partnerships across key sectors in Singapore and the region. With Care, the technology provider for Raffles Hospital's RafflesConnect app, Tencent Cloud is enhancing secure and seamle... (1218 chars truncated)",
+                  "url": "https://finance.yahoo.com/news/partnerships-ai-showcase-tencent-cloud-020000239.html"
+                },
+                {
+                  "title": "Ali Farha's Post - LinkedIn",
+                  "snippet": "I am so excited to share this massive news\nTencent Europe is officially a Growth Partner of Futuregames\nBig news for the next generation of game developers at Futuregames in Sweden and Poland.\nHere's what this partnership means in practice:\n1. Mentorship: Tencent's team will support students through the game projects created during the 2026 programme\n   \n2. Creative Themes: They'll help set the direction for student projects and increase the commercial potential of games\n   \n3. Networking Support: Promising games will get support in gaining industry exposure\nThis is exactly the kind of industry support that changes careers before they even start.\nMassive thanks to Maximilian Bock, Emma Richards, Tim Stok, and Henrietta Mackenzie for making this happen. [...] 7,274 followers\n\nExcited to sha... (1548 chars truncated)",
+                  "url": "https://www.linkedin.com/posts/alifarha_i-am-so-excited-to-share-this-massive-news-activity-7429449661712736256-ILoI"
+                },
+                {
+                  "title": "Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI ...",
+                  "snippet": "## Share this article\n\nShare this article\n\nSÃO PAULO, Feb. 5, 2026 /PRNewswire/ -- Treeal, a Brazilian fintech company specializing in innovative payment solutions for businesses, today announced the partnership with Tencent Cloud, the cloud business of leading global technology company Tencent, to introduce the advanced PalmAI Service to the Brazilian market. Designed to outperform traditional biometric methods, including fingerprint and facial recognition, the new system offers a secure, contactless, and highly accurate alternative for payment processing and access control.\n\nTencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil [...] ## View All Consumer Products & Retail\n\n## Entertain­ment & Media\n\n## View All Entertain­ment & Media\n\n## Health\n\n## View All Health... (1217 chars truncated)",
+                  "url": "https://www.prnewswire.com/apac/news-releases/tencent-cloud-and-treeal-partnership-brings-next-gen-palmai-service-to-brazil-302678645.html"
+                },
+                {
+                  "title": "Tencent Cloud Powers Blooming Talk's Next-Gen Fan Messaging to ...",
+                  "snippet": "### Modal title\n\n## Also from this source\n\nTencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil\n\n### Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil\n\nTreeal, a Brazilian fintech company specializing in innovative payment solutions for businesses, today announced the partnership with Tencent Cloud,...\n\nTencent Cloud EdgeOne Launches Free AI Crawler Control: Empowering Developers to Reclaim Content Sovereignty\n\n### Tencent Cloud EdgeOne Launches Free AI Crawler Control: Empowering Developers to Reclaim Content Sovereignty\n\nAs the demand for data to train Generative AI models surges, developers are facing a critical dilemma: how to manage aggressive AI scraping while...\n\n## Explore\n\nInternet Technology\n\nInternet Technology [...] ## Share ... (1173 chars truncated)",
+                  "url": "https://www.prnewswire.com/apac/news-releases/tencent-cloud-powers-blooming-talks-next-gen-fan-messaging-to-redefine-global-artist-fan-connectivity-302682516.html"
+                },
+                {
+                  "title": "Tencent Cloud Fan Messaging Deal Highlights Undervalued Growth ...",
+                  "snippet": "Tencent Cloud, part of Tencent Holdings SEHK:700, expanded its global collaboration with Blooming Talk to support artist fan messaging.\n The partnership focuses on using Tencent Cloud's messaging infrastructure to power real time communications between artists and fans worldwide.\n The renewed collaboration highlights Tencent's interest in AI driven services and media engagement through its cloud division.\n\nTencent Holdings SEHK:700 has been pushing deeper into cloud services, using its experience in social platforms, gaming and digital media to support communication tools for partners. By working with Blooming Talk, the company is putting more attention on real time engagement tools that sit at the intersection of entertainment, messaging and AI supported services.",
+                  "url": "https://finance.yahoo.com/news/tencent-cloud-fan-messaging-deal-070819816.html"
+                },
+                {
+                  "title": "Tencent Unveils Four New Global Applications of TanLIVE at ...",
+                  "snippet": "Supporting the UN Solutions Hub\n\nTencent is partnering with the UN Framework Convention on Climate Change (UNFCCC), the UN Global Innovation Hub and the Global Enabling Sustainability Initiative (GeSI) to deliver the UN Solutions Hub (UNSH), a new digital platform aimed at helping cities and governments accelerate climate action. \n\nUNSH is being built on Tencent’s TanLIVE infrastructure, enabling a multitude of relevant stakeholders, public and private, to discover verified climate technologies from trusted global databases. \n\nWith the strong support of the UN Global Innovation HUB, the UNSH creates a trusted space for collaboration among governments, solution providers, and financiers, transforming climate ambition into implementation. [...] Supporting the UN Solutions Hub\n\nTencent is par... (1321 chars truncated)",
+                  "url": "https://www.tencent.com/en-us/articles/2202221.html"
+                },
+                {
+                  "title": "Products & Services | Tencent Careers",
+                  "snippet": "On the principle of \"connecting everything\", Tencent continues to explore a range of diverse, integrated social entertainment offerings that look towards the future. Building upon high-quality content and driven by our technological innovations, We continue to explore the next generation of social and content integration. Through cross-screen, multi-platform and multi-format models, We aim to provide Internet users with diversified and multi-dimensional content, to satisfy all of our users' entertainment needs. [...] At the same time, We are firmly aware of the importance of copyright and IP to the protection of creative industries. With respect to copyright, We endeavour to explore potential IPs in the content business ecosystem. At present, our digital content products include: Online Ga... (617 chars truncated)",
+                  "url": "https://careers.tencent.com/en-us/productservice.html"
+                },
+                {
+                  "title": "Products & Services | Tencent Cloud",
+                  "snippet": "### 数据应用与可视化\n\n### 腾讯云BI\n\n高效、强大、迅捷的新一代敏捷自助BI服务平台\n\n### 软件产品\n\n### 专有云软件\n\n### 腾讯专有云企业版\n\n腾讯专有云企业版（Tencent Cloud Enterprise,简称Tencent TCE）是基于腾讯云成熟产品体系的企业级专有云平台，为企业提供自主可控、弹性伸缩的全栈服务能力。\n\n### TencentOS Server\n\nTencentOS Server是腾讯云研发的企业级Linux服务器操作系统，以稳定、可靠、安全为核心价值，致力于为产业提供合规可靠的数字化底座。\n\n### 腾讯专有云 PaaS 平台\n\n腾讯专有云 PaaS 平台（Tencent Cloud-native Suite，简称Tencent TCS）是面向企业云原生转型的一站式云原生平台，支持本地裸金属或第三方IaaS部署。\n\n### 腾讯云数据库\n\n### TDSQL\n\n腾讯云自研企业级数据库软件产品，旨在提供卓越的性能、弹性和稳定性，采用金融级高可用方案，为关键业务应用提供持续可用性和可信数据保护。\n\n### 数据开发与治理\n\n### 大数据处理套件 TBDS\n\n大数据处理套件 TBDS 提供安全、可靠、易用的一站式、高性能、企业级大数据存储计算分析平台。\n\n### 人工智能与机器学习\n\n### AI 基础产品\n\n### 人脸识别\n\n精准实时的人脸检测、分析、与海量人脸搜索服务\n\n### 语音识别\n\n提供业界非常具有性价比的语音识别服务，超高识别准确率，适用多场景\n\n### 语音合成\n\n专业智能高效的语音处理服务\n\n### 机器翻译\n\n支持十余种语言的高效准确翻译服务\n\n### 文字识别\n\n精准、快速、多场景的图像文字识别服务\n\n### 图像创作 [...] 支持十余种语言的高效准确翻译服务\n\n### 文字识别\n\n精准、快速、多场... (1560 chars truncated)",
+                  "url": "https://www.tencentcloud.com/product"
+                },
+                "... (9 more items)"
+              ],
+              "answer_preview": "Tencent announced partnerships to enhance AI services, support game developers, and introduce advanced biometric solutions in Brazil. These collaborations focus on AI, gaming, and innovative payment technologies.",
+              "query_attempts": [
+                {
+                  "attempt_index": "1",
+                  "query": "Tencent products partnerships latest news",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "2",
+                  "query": "Tencent official site products",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "3",
+                  "query": "Tencent wikipedia partnerships",
+                  "raw_result_count": "6",
+                  "added_result_count": "5",
+                  "error": "None"
+                }
+              ],
+              "result_count": "17",
+              "dedupe_count": "17",
+              "search_success": "True",
+              "public_products_candidates": [
+                "Tencent Cloud Charts New Growth at Singapore Event SINGAPORE, Nov. 12, 2025 /PRNewswire/ -- Tencent today announced several new strategic partnerships at Tencent Cloud Day Singapore 2025, reaffirming its commitment to bu",
+                "Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI ... ## Share this article\n\nShare this article\n\nSÃO PAULO, Feb. 5, 2026 /PRNewswire/ -- Treeal, a Brazilian fintech company specializing in innovative payment so",
+                "Tencent Cloud Powers Blooming Talk's Next-Gen Fan Messaging to ... ### Modal title\n\n## Also from this source\n\nTencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil\n\n### Tencent Cloud and Treeal Pa",
+                "Tencent Cloud Fan Messaging Deal Highlights Undervalued Growth ... Tencent Cloud, part of Tencent Holdings SEHK:700, expanded its global collaboration with Blooming Talk to support artist fan messaging.\n The partnership ",
+                "Tencent Unveils Four New Global Applications of TanLIVE at ... Supporting the UN Solutions Hub\n\nTencent is partnering with the UN Framework Convention on Climate Change (UNFCCC), the UN Global Innovation Hub and the Glob",
+                "Products & Services | Tencent Careers On the principle of \"connecting everything\", Tencent continues to explore a range of diverse, integrated social entertainment offerings that look towards the future. Building upon hi",
+                "Products & Services | Tencent Cloud ### 数据应用与可视化\n\n### 腾讯云BI\n\n高效、强大、迅捷的新一代敏捷自助BI服务平台\n\n### 软件产品\n\n### 专有云软件\n\n### 腾讯专有云企业版\n\n腾讯专有云企业版（Tencent Cloud Enterprise,简称Tencent TCE）是基于腾讯云成熟产品体系的企业级专有云平台，为企业提供自主可控、弹性伸缩的全栈服务能力。\n\n### Te",
+                "Products & Services | Tencent Cloud Get Started For Free\n\n# Products & Services\n\n## Explore ever-expanding Tencent Cloud products and services and start building your business in Tencent Cloud.\n\n Cloud Virtual Machine\n C"
+              ],
+              "_truncated_keys": 2
+            },
+            "metadata": {
+              "source": "tavily",
+              "query_attempts": [
+                {
+                  "attempt_index": 1,
+                  "query": "Tencent products partnerships latest news",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 2,
+                  "query": "Tencent official site products",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 3,
+                  "query": "Tencent wikipedia partnerships",
+                  "raw_result_count": 6,
+                  "added_result_count": 5,
+                  "error": null
+                }
+              ],
+              "result_count": 17,
+              "dedupe_count": 17,
+              "answer_preview": "Tencent announced partnerships to enhance AI services, support game developers, and introduce advanced biometric solutions in Brazil. These collaborations focus on AI, gaming, and innovative payment technologies."
+            }
+          }
+        },
+        {
+          "tool_name": "generate_document",
+          "args_digest": "e58842c17cef",
+          "duration_ms": 0.08570798672735691,
+          "status": "success",
+          "output_hash": "c222539b7cdf",
+          "details": {
+            "input_payload": {
+              "template_name": "consulting_brief.md.j2"
+            },
+            "output_payload_preview": {
+              "document": "# Consultant Briefing Note: Tencent\n\n## Executive Summary\nTencent continues to expand its cloud and AI ecosystem through a series of strategic partnerships and product launches, while maintaining a low‑risk internal project profile. Public initiatives focus on AI‑powered services, biometric payment solutions, fan‑engagement platforms, and climate‑action technology, supported by a broad portfolio of cloud products. Internally, engagement is underway on a redacted project with no disclosed budget or product details.\n\n## Public Findings\n- Tencent Cloud announced new strategic partnerships at Cloud Day Singapore 2025, including collaborations with Care, RYDE, and Digital China Singapore to enhance AI‑powered services.\n- Tencent Cloud partnered with Treeal to launch PalmAI biometric payment ser... (2377 chars truncated)",
+              "template_name": "consulting_brief.md.j2",
+              "document_hash": "3f0f5eea0993"
+            },
+            "metadata": {
+              "artifact_kind": "briefing",
+              "composer_recovery_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 0.47324999468401074,
+          "status": "success",
+          "output_hash": "dd644197ead8",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "document": "# Consultant Briefing Note: Tencent\n\n## Executive Summary\nTencent continues to expand its cloud and AI ecosystem through a series of strategic partnerships and product launches, while maintaining a low‑risk internal project profile. Public initiatives focus on AI‑powered services, biometric payment solutions, fan‑engagement platforms, and climate‑action technology, supported by a broad portfolio of cloud products. Internally, engagement is underway on a redacted project with no disclosed budget or product details.\n\n## Public Findings\n- Tencent Cloud announced new strategic partnerships at Cloud Day Singapore 2025, including collaborations with Care, RYDE, and Digital China Singapore to enhance AI‑powered services.\n- Tencent Cloud partnered with Treeal to launch PalmAI biometric payment ser... (2377 chars truncated)",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "3f0f5eea0993"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 4,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "briefing_full",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 5,
+        "fact_verdict": "pass",
+        "fact_reason": "All claims in the candidate output are supported by either internal_db or web_results evidence. Public partnerships, products, internal engagement, and risk level are explicitly mentioned in the provided evidence. No unsupported claims were found.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": 1,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": true,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-brief-tesla-de",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "briefing_full",
+      "resolved_task_type": "briefing_full",
+      "company": "Tesla",
+      "risk_tier": "low",
+      "input_language": "German",
+      "expected_output_language": "German",
+      "instruction_style": "direct",
+      "case_id": "accuracy-brief-tesla-de-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": false,
+      "reason": "Accuracy check failed: factual score must be >= 4.",
+      "latency_ms": 30801.0,
+      "run_id": "pf-91ab98767305",
+      "trace_id": "a672c0551b251a343513c00d3d217618",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/a672c0551b251a343513c00d3d217618",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=briefing_full, company=Tesla, language=German",
+          "started_at": "2026-02-25T18:13:43.405749+00:00",
+          "ended_at": "2026-02-25T18:13:43.405893+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=5",
+          "started_at": "2026-02-25T18:13:43.406240+00:00",
+          "ended_at": "2026-02-25T18:13:47.655557+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=5, task=briefing_full",
+          "started_at": "2026-02-25T18:13:47.656456+00:00",
+          "ended_at": "2026-02-25T18:13:47.656552+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_parallel",
+          "status": "completed",
+          "message": "internal db + web retrieval completed",
+          "started_at": "2026-02-25T18:13:47.656967+00:00",
+          "ended_at": "2026-02-25T18:13:54.807294+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "template document generated",
+          "started_at": "2026-02-25T18:13:54.807754+00:00",
+          "ended_at": "2026-02-25T18:14:10.113697+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=German, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:10.115977+00:00",
+          "ended_at": "2026-02-25T18:14:10.116796+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:10.117814+00:00",
+          "ended_at": "2026-02-25T18:14:10.120423+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:10.121047+00:00",
+          "ended_at": "2026-02-25T18:14:10.251422+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:10.251810+00:00",
+          "ended_at": "2026-02-25T18:14:10.251882+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "get_company_info",
+          "args_digest": "2db93ce03ed7",
+          "duration_ms": 0.9725000127218664,
+          "status": "success",
+          "output_hash": "f65d26a1e5da",
+          "details": {
+            "input_payload": {
+              "company_name": "Tesla"
+            },
+            "output_payload_preview": {
+              "record_found": "True",
+              "company_name": "Tesla",
+              "industry": "Mobility Technology",
+              "public_products": [
+                "Tesla Platform",
+                "Tesla Collaboration Suite"
+              ],
+              "public_partnerships": [
+                "NVIDIA",
+                "IBM"
+              ],
+              "project_risk_level": "low",
+              "internal_summary": "Internal engagement exists. Project name: [REDACTED]. Budget: [REDACTED]. Internal product line: [REDACTED]."
+            },
+            "metadata": {
+              "source": "internal_db"
+            }
+          }
+        },
+        {
+          "tool_name": "search_public_web",
+          "args_digest": "2db93ce03ed7",
+          "duration_ms": 7148.3560830238275,
+          "status": "success",
+          "output_hash": "86f36e35522b",
+          "details": {
+            "input_payload": {
+              "company_name": "Tesla"
+            },
+            "output_payload_preview": {
+              "company_name": "Tesla",
+              "results": [
+                {
+                  "title": "Pilot Partners with Tesla on Semi Charger Network for Fleets",
+                  "snippet": "Login or Sign Up to view your account\n\n##### Travel Centers\n\n##### Rewards\n\n##### Pro Drivers\n\n##### Fleet Solutions\n\n##### Food & Drink\n\n## Share this page\n\n|  |  |  |\n --- \n| Share on: X | Share on: Facebook | Share on: LinkedIn |\n\n|  |  |\n --- |\n|  |  |\n\n## Latest news\n\nPost this release on X\n\n# Pilot Partners with Tesla on Semi Charger Network for Fleets\n\nPilot Travel Centers LLC (“Pilot”), the nation’s largest operator of travel centers, has entered into an agreement with Tesla to install Semi Chargers to facilitate heavy-duty electric vehicle truck charging. The Tesla charging stations will be built at select Pilot locations along I-5, I-10, and several major corridors where the need for heavy-duty charging is highest. The first sites are expected to open in Summer 2026. [...] This n... (1386 chars truncated)",
+                  "url": "https://newsroom.pilotcompany.com/pilot-partners-with-tesla-on-semi-charger-network-for-fleets/"
+                },
+                {
+                  "title": "Samsung Announces Collaboration With Tesla at CES 2024 for ...",
+                  "snippet": "Samsung Electronics Co., Ltd. today announced that it has established a service integration with Tesla, to be showcased at CES® 2024, that will connect SmartThings Energy to Tesla products such as Powerwall home battery, Solar Inverter, Wall Connector charging solutions and electric vehicles (EVs). Made possible through Tesla’s open APIs(#_ftn1), this collaboration will result in the further expansion of SmartThings Energy’s already-comprehensive level of connectivity and contribute to Samsung’s ultimate goal of enabling more convenient, seamless home experiences for consumers. [...] “At Tesla we are excited to add capability to our products to interact with other intelligent devices and software in customers’ homes. We recently published FleetAPI, allowing developers to interact with Powe... (1158 chars truncated)",
+                  "url": "https://news.samsung.com/ca/samsung-announces-collaboration-with-tesla-at-ces-2024-for-smartthings-energy"
+                },
+                {
+                  "title": "Tesla adds 64 Megacharger locations to map, revealing Semi truck ...",
+                  "snippet": "In April 2025, Tesla Semi program lead Dan Priestley said the company is aiming to deploy 46 Megacharger stations by early 2027. Tesla’s Q4 report showed about 37 sites planned for 2026 specifically.\n\nThe Pilot Travel Centers partnership announced in January provides a more concrete timeline for some sites. Construction of Tesla Semi chargers at select Pilot locations across California, Georgia, Nevada, New Mexico, and Texas is set to begin in the first half of 2026, with the first stations expected to open by summer 2026. Each Pilot site will host 4 to 8 Megacharger stalls capable of delivering up to 1.2 MW. [...] No other company is close to matching this in North America. Daimler, Volvo, and Traton formed the Milence joint venture for European truck charging, but that’s Europe-focused a... (1215 chars truncated)",
+                  "url": "https://electrek.co/2026/02/24/tesla-megacharger-64-locations-semi-truck-charging-network-map/"
+                },
+                {
+                  "title": "Tesla to End Model X, S Production, Convert Fremont Space for ...",
+                  "snippet": "# Manufacturing Cost Policy Deployment (MCPD) Profitability Scenarios: Systematic and Systemic Improvement of Manufacturing Costs\n\n\t\nASSEMBLY Plant of the Year 2026 - Nominations Open! \n\n# Related Articles\n\nNew Fuel Cell System Honda will use to expand business opportunities in order to grow its hydrogen business\n\n# Fuel Cell Manufacturing Joint Venture to End as Honda, GM Shift Strategy\n\nThe IFR says AI powered robots will feature computer vision, natural language progression, reinforcement learning, supervised learning, sensor fusion and slam, and generative AI \n\n# Manufacturers Turn to AI-Enabled Robots to Improve Quality, New Paper Says\n\nTesla in Fremont, California.jpg\n\n# Worker's from Tesla's Shanghai Factory Sent to California Factory To Boost Production\n\n# Related Products [...] Te... (1199 chars truncated)",
+                  "url": "https://www.assemblymag.com/articles/99853-tesla-to-end-model-x-s-production-convert-fremont-space-for-optimus-robots"
+                },
+                {
+                  "title": "Microsoft and SpaceX's Starlink partner on global internet effort",
+                  "snippet": "CNBC\nJoin IC\nJoin Pro\nJoin IC\nJoin Pro\n\n# Microsoft and SpaceX's Starlink partner on global community internet effort\n\nthumbnail\n\nIn this article\n\nMicrosoft on Tuesday announced a collaboration with SpaceX's Starlink satellite internet service to expand connectivity across the world.\n\nIt's a sign of the software company's willingness to collaborate with Tesla CEO Elon Musk's family of businesses, as the world's richest person takes Microsoft partner OpenAI to court.\n\n\"Through our collaboration with Starlink, Microsoft is combining low-Earth orbit satellite connectivity with community-based deployment models and local ecosystem partnerships,\" Microsoft's chief sustainability officer, Melanie Nakagawa, wrote in a blog post. [...] In alliance with Starlink and an internet service provider in ... (1413 chars truncated)",
+                  "url": "https://www.cnbc.com/2026/02/24/microsoft-spacex-starlink-global-internet.html"
+                },
+                {
+                  "title": "Tesla set to launch vehicle-to-grid programme in the US",
+                  "snippet": "The Cybertruck’s larger battery will provide enhanced grid support capabilities compared to typical residential energy storage systems. Unlike traditional peaker plants that require ramp-up time, the V2G system can respond to grid stress with millisecond-level precision.\n\nTesla emphasised that events will occur infrequently and sometimes at short notice, requiring owners to keep their vehicles ready. Because of this, the company recommends plugging in vehicles whenever at home, even when charging is not needed, and limiting Powershare settings to maximise available energy for grid discharge events. [...] # Tesla set to launch vehicle-to-grid programme in the US\n\nTesla is set to officially launch its first vehicle-to-grid (V2G) programme in the US soon.\n\nThe Powershare Grid Support Program,... (1290 chars truncated)",
+                  "url": "https://www.energy-storage.news/tesla-set-to-launch-vehicle-to-grid-programme-in-the-us/"
+                },
+                {
+                  "title": "The Official Tesla Shop | Tesla",
+                  "snippet": "The official Tesla Shop. Purchase Wall Connectors, chargers, adapters, vehicle accessories and Tesla branded merchandise, collectibles and clothing for",
+                  "url": "https://shop.tesla.com/"
+                },
+                {
+                  "title": "The Official Tesla Shop",
+                  "snippet": "The official Tesla Shop. Purchase Wall Connectors, chargers, adapters, vehicle accessories and Tesla branded merchandise, collectibles and clothing for",
+                  "url": "https://shop.tesla.com/en_ca?redirect=no"
+                },
+                "... (10 more items)"
+              ],
+              "answer_preview": "Tesla partners with Pilot Travel Centers to install Semi chargers at select locations, aiming to open first sites by summer 2026. Tesla also announced a collaboration with Samsung to integrate SmartThings Energy with Tesla products, set to launch in Q2 2024. Tesla plans to deploy 64 Megacharger stations by early 2027.",
+              "query_attempts": [
+                {
+                  "attempt_index": "1",
+                  "query": "Tesla products partnerships latest news",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "2",
+                  "query": "Tesla official site products",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "3",
+                  "query": "Tesla wikipedia partnerships",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                }
+              ],
+              "result_count": "18",
+              "dedupe_count": "18",
+              "search_success": "True",
+              "public_products_candidates": [
+                "Pilot Partners with Tesla on Semi Charger Network for Fleets Login or Sign Up to view your account\n\n##### Travel Centers\n\n##### Rewards\n\n##### Pro Drivers\n\n##### Fleet Solutions\n\n##### Food & Drink\n\n## Share this page\n\n|",
+                "Samsung Announces Collaboration With Tesla at CES 2024 for ... Samsung Electronics Co., Ltd. today announced that it has established a service integration with Tesla, to be showcased at CES® 2024, that will connect Smart",
+                "Tesla adds 64 Megacharger locations to map, revealing Semi truck ... In April 2025, Tesla Semi program lead Dan Priestley said the company is aiming to deploy 46 Megacharger stations by early 2027. Tesla’s Q4 report show",
+                "Tesla to End Model X, S Production, Convert Fremont Space for ... # Manufacturing Cost Policy Deployment (MCPD) Profitability Scenarios: Systematic and Systemic Improvement of Manufacturing Costs\n\n\t\nASSEMBLY Plant of the",
+                "Microsoft and SpaceX's Starlink partner on global internet effort CNBC\nJoin IC\nJoin Pro\nJoin IC\nJoin Pro\n\n# Microsoft and SpaceX's Starlink partner on global community internet effort\n\nthumbnail\n\nIn this article\n\nMicroso",
+                "Tesery - Tesla Premium Accessories Store + Interior \n\n    - Floor Mats\n  + Exterior \n\n    - Roof Rack\n    - Wheel Accessories\n Cybertruck\n\nAccount   Cart  0\n\n### Search our store\n\nAccount   Cart  0\n\nPopular Searches:\n\nsu",
+                "Tesla: Electric Cars, Solar & Clean Energy Electric Cars, Solar & Clean Energy | Tesla\n\n For the best experience, we recommend upgrading or changing your web browser. Learn More\n\nTeslaSkip to main content\n\n1.   Vehicles\n",
+                "Customer and Product Support - Tesla ## Tesla Account\n\n1. Add a Vehicle\n2. Account Support\n3. Tesla App\n4. Refer and Earn\n5. Financing & Leasing\n\n## Powerwall\n\n1. How Powerwall Works\n2. System Design\n3. Prepare for Insta"
+              ],
+              "_truncated_keys": 2
+            },
+            "metadata": {
+              "source": "tavily",
+              "query_attempts": [
+                {
+                  "attempt_index": 1,
+                  "query": "Tesla products partnerships latest news",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 2,
+                  "query": "Tesla official site products",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 3,
+                  "query": "Tesla wikipedia partnerships",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                }
+              ],
+              "result_count": 18,
+              "dedupe_count": 18,
+              "answer_preview": "Tesla partners with Pilot Travel Centers to install Semi chargers at select locations, aiming to open first sites by summer 2026. Tesla also announced a collaboration with Samsung to integrate SmartThings Energy with Tesla products, set to launch in Q2 2024. Tesla plans to deploy 64 Megacharger stations by early 2027."
+            }
+          }
+        },
+        {
+          "tool_name": "generate_document",
+          "args_digest": "e58842c17cef",
+          "duration_ms": 0.3641670336946845,
+          "status": "success",
+          "output_hash": "db13472d36e5",
+          "details": {
+            "input_payload": {
+              "template_name": "consulting_brief.md.j2"
+            },
+            "output_payload_preview": {
+              "document": "# Beratungs-Briefing: Tesla\n\n## Management-Zusammenfassung\nTesla, ein führendes Unternehmen im Mobilitätstechnologie‑Sektor, hat mehrere strategische Partnerschaften und Produktinitiativen vorangetrieben. Zu den jüngsten Entwicklungen gehören die Installation von Semi‑Ladeinfrastruktur in Zusammenarbeit mit Pilot Travel Centers, die Integration von SmartThings Energy durch Samsung, die Ausweitung des Megacharger‑Netzwerks sowie die Einführung eines Vehicle‑to‑Grid‑Programms für Cybertruck‑Besitzer. Intern bleibt das Projektportfolio mit dem Produktportfolio „Tesla Platform“ und „Tesla Collaboration Suite“ sowie Partnerschaften mit NVIDIA und IBM bestehen.\n\n## Öffentliche Erkenntnisse\n- Pilot Travel Centers und Tesla kooperieren zur Installation von Semi‑Ladegeräten an ausgewählten Standort... (2403 chars truncated)",
+              "template_name": "consulting_brief.md.j2",
+              "document_hash": "94967f788a41"
+            },
+            "metadata": {
+              "artifact_kind": "briefing",
+              "composer_recovery_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "2db93ce03ed7",
+          "duration_ms": 1.704458030872047,
+          "status": "success",
+          "output_hash": "b64fb58d6bc5",
+          "details": {
+            "input_payload": {
+              "company_name": "Tesla"
+            },
+            "output_payload_preview": {
+              "document": "# Beratungs-Briefing: Tesla\n\n## Management-Zusammenfassung\nTesla, ein führendes Unternehmen im Mobilitätstechnologie‑Sektor, hat mehrere strategische Partnerschaften und Produktinitiativen vorangetrieben. Zu den jüngsten Entwicklungen gehören die Installation von Semi‑Ladeinfrastruktur in Zusammenarbeit mit Pilot Travel Centers, die Integration von SmartThings Energy durch Samsung, die Ausweitung des Megacharger‑Netzwerks sowie die Einführung eines Vehicle‑to‑Grid‑Programms für Cybertruck‑Besitzer. Intern bleibt das Projektportfolio mit dem Produktportfolio „Tesla Platform“ und „Tesla Collaboration Suite“ sowie Partnerschaften mit NVIDIA und IBM bestehen.\n\n## Öffentliche Erkenntnisse\n- Pilot Travel Centers und Tesla kooperieren zur Installation von Semi‑Ladegeräten an ausgewählten Standort... (2403 chars truncated)",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "94967f788a41"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 4,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "briefing_full",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 3,
+        "fact_verdict": "fail",
+        "fact_reason": "The candidate output includes unsupported claims such as the existence of a 'Tesla Platform' and 'Tesla Collaboration Suite' as public products, which are only mentioned in internal_db but not corroborated by web or other sources; additionally, the listing of public products and partnerships includes raw, unprocessed text snippets from web_results (e.g., 'Login or Sign Up to view your account'), indicating hallucination or improper extraction. While some claims about Pilot, Samsung, Megacharger, and V2G are supported by web evidence, the inclusion of clearly unsupported and malformed content reduces overall factual grounding.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": 1,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": true,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-brief-tencent-zh",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "briefing_full",
+      "resolved_task_type": "briefing_full",
+      "company": "Tencent",
+      "risk_tier": "low",
+      "input_language": "Chinese",
+      "expected_output_language": "Chinese",
+      "instruction_style": "native",
+      "case_id": "accuracy-brief-tencent-zh-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 21680.0,
+      "run_id": "pf-3427d1389553",
+      "trace_id": "67e956717693c4ee57c28df3e0855b98",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/67e956717693c4ee57c28df3e0855b98",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=briefing_full, company=Tencent, language=Chinese",
+          "started_at": "2026-02-25T18:13:43.409201+00:00",
+          "ended_at": "2026-02-25T18:13:43.409375+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=4",
+          "started_at": "2026-02-25T18:13:43.410385+00:00",
+          "ended_at": "2026-02-25T18:13:46.900672+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=4, task=briefing_full",
+          "started_at": "2026-02-25T18:13:46.902238+00:00",
+          "ended_at": "2026-02-25T18:13:46.902678+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_parallel",
+          "status": "completed",
+          "message": "internal db + web retrieval completed",
+          "started_at": "2026-02-25T18:13:46.904057+00:00",
+          "ended_at": "2026-02-25T18:13:54.291044+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "template document generated",
+          "started_at": "2026-02-25T18:13:54.292766+00:00",
+          "ended_at": "2026-02-25T18:14:00.415679+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=Chinese, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:00.417417+00:00",
+          "ended_at": "2026-02-25T18:14:00.417942+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:00.418964+00:00",
+          "ended_at": "2026-02-25T18:14:00.421845+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:00.423473+00:00",
+          "ended_at": "2026-02-25T18:14:00.570623+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:00.571000+00:00",
+          "ended_at": "2026-02-25T18:14:00.571075+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "get_company_info",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 3.863374993670732,
+          "status": "success",
+          "output_hash": "f68489f5b45a",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "record_found": "True",
+              "company_name": "Tencent",
+              "industry": "Telecom / Consumer Internet",
+              "public_products": [
+                "Tencent Platform",
+                "Tencent Collaboration Suite"
+              ],
+              "public_partnerships": [
+                "Microsoft",
+                "Oracle"
+              ],
+              "project_risk_level": "low",
+              "internal_summary": "Internal engagement exists. Project name: [REDACTED]. Budget: [REDACTED]. Internal product line: [REDACTED]."
+            },
+            "metadata": {
+              "source": "internal_db"
+            }
+          }
+        },
+        {
+          "tool_name": "search_public_web",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 7379.327457980253,
+          "status": "success",
+          "output_hash": "0dfff5c973a9",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "company_name": "Tencent",
+              "results": [
+                {
+                  "title": "Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI ...",
+                  "snippet": "## Share this article\n\nShare this article\n\nSÃO PAULO, Feb. 5, 2026 /PRNewswire/ -- Treeal, a Brazilian fintech company specializing in innovative payment solutions for businesses, today announced the partnership with Tencent Cloud, the cloud business of leading global technology company Tencent, to introduce the advanced PalmAI Service to the Brazilian market. Designed to outperform traditional biometric methods, including fingerprint and facial recognition, the new system offers a secure, contactless, and highly accurate alternative for payment processing and access control.\n\nTencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil [...] ## View All Consumer Products & Retail\n\n## Entertain­ment & Media\n\n## View All Entertain­ment & Media\n\n## Health\n\n## View All Health... (1217 chars truncated)",
+                  "url": "https://www.prnewswire.com/apac/news-releases/tencent-cloud-and-treeal-partnership-brings-next-gen-palmai-service-to-brazil-302678645.html"
+                },
+                {
+                  "title": "Tencent Cloud expands partnership with Blooming Talk to power ...",
+                  "snippet": "Marketech APAC\n\n# Tencent Cloud expands partnership with Blooming Talk to power global artist-fan messaging\n\n## -\n\n## February 10, 2026\n\nOur What’s NEXT in Marketing 2026 Conference Series returns to the Philippines, Singapore, Hong Kong, Indonesia, Malaysia—and for the first time in Thailand! Brace yourself for bold ideas driving the next marketing wave. Click here to learn more!\n\nHong Kong – Blooming Talk, the mobile fan communication platform, has deepened its partnership with Tencent Cloud to transform global artist-fan interactions, enabling real-time engagement across markets. [...] Daemyung Jang, CTO of BLOOMING CHATBOT Pte. Ltd., added, “We chose Tencent Cloud to ensure stable and low-latency communication for our global fandom platform. Tencent Cloud’s Chat feature was easy to int... (1326 chars truncated)",
+                  "url": "https://marketech-apac.com/tencent-cloud-expands-partnership-with-blooming-talk-to-power-global-artist-fan-messaging/"
+                },
+                {
+                  "title": "Tencent Cloud Powers Blooming Talk's Next-Gen Fan Messaging to ...",
+                  "snippet": "### Modal title\n\n## Also from this source\n\nTencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil\n\n### Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil\n\nTreeal, a Brazilian fintech company specializing in innovative payment solutions for businesses, today announced the partnership with Tencent Cloud,...\n\nTencent Cloud EdgeOne Launches Free AI Crawler Control: Empowering Developers to Reclaim Content Sovereignty\n\n### Tencent Cloud EdgeOne Launches Free AI Crawler Control: Empowering Developers to Reclaim Content Sovereignty\n\nAs the demand for data to train Generative AI models surges, developers are facing a critical dilemma: how to manage aggressive AI scraping while...\n\n## Explore\n\nInternet Technology\n\nInternet Technology [...] ## Share ... (1173 chars truncated)",
+                  "url": "https://www.prnewswire.com/apac/news-releases/tencent-cloud-powers-blooming-talks-next-gen-fan-messaging-to-redefine-global-artist-fan-connectivity-302682516.html"
+                },
+                {
+                  "title": "Tencent Unveils Four New Global Applications of TanLIVE at ...",
+                  "snippet": "Supporting the UN Solutions Hub\n\nTencent is partnering with the UN Framework Convention on Climate Change (UNFCCC), the UN Global Innovation Hub and the Global Enabling Sustainability Initiative (GeSI) to deliver the UN Solutions Hub (UNSH), a new digital platform aimed at helping cities and governments accelerate climate action. \n\nUNSH is being built on Tencent’s TanLIVE infrastructure, enabling a multitude of relevant stakeholders, public and private, to discover verified climate technologies from trusted global databases. \n\nWith the strong support of the UN Global Innovation HUB, the UNSH creates a trusted space for collaboration among governments, solution providers, and financiers, transforming climate ambition into implementation. [...] Supporting the UN Solutions Hub\n\nTencent is par... (1321 chars truncated)",
+                  "url": "https://www.tencent.com/en-us/articles/2202221.html"
+                },
+                {
+                  "title": "Tencent 腾讯",
+                  "snippet": "# Tencent腾讯\n\nai\n\n## 马来西亚旅游局与微信支付正式建立战略合作，进一步提升游客体验\n\n##### \n\nai\n\n## 腾讯公布二零二五年第三季业绩\n\n##### \n\nai\n\n## 有朋自远方来， 欢迎使用微信支付!\n\n##### 腾讯正全面提升外籍人士在华支付体验，以促进国际旅游进一步蓬勃发展和国际人文交流。\n\n#### 最新动态\n\n### 从玩家到职业：一场源于热爱的电竞征程\n\n游戏远不止娱乐放松。它能构建社群，锻炼能力，而对India Browne来说，更为她开辟了一条未曾设想的道路。\n\n### 腾讯电竞与亚奥理事会开启新一轮战略合作，“三极驱动”共筑亚洲电竞新纪元\n\n亚洲奥林匹克理事会与腾讯电竞共同宣布，双方正式达成一项为期十年的全新战略合作。\n\n### 马来西亚旅游局与微信支付正式建立战略合作，进一步提升游客体验\n\n今日，马来西亚旅游局与微信支付通过签署合作备忘录，正式确立双方的战略合作关系。\n\n### 碳寻计划：推动创意落地，加速气候行动\n\n碳寻计划汇聚全球科学家、工程师、创业者及其他关键生态合作伙伴，共同将大胆构想与具潜力的技术转化为气候解决方案。\n\n### HeritageSG与腾讯合作推出WonderBot 2.0 为新加坡儿童博物馆带来全新游览体验\n\nWonderBot 2.0亮相新加坡儿童博物馆，腾讯为期三年数字文化遗产保护计划成果初现。\n\n### TenPay Global携手万事达卡，实现快速、安全的跨境汇款至微信支付\n\n腾讯跨境支付平台TenPay Global与万事达卡的资金流动业务Mastercard Move宣布达成合作。\n\n### 2025可持续社会价值创新大会：寻找AI时代推动可持续发展的解法\n\n2025年12月3日，“可持续社会价值创新峰会”（S大会）在京举办。\n\nAbout Us\n\n## 公司简介 [...] Tenc... (1505 chars truncated)",
+                  "url": "https://www.tencent.com/"
+                },
+                {
+                  "title": "Tencent Cloud, Amaze partner on live e-commerce services in ...",
+                  "snippet": "burger icon\ntelecompaper logo\nsearch icon\nsearch icon\nTencent Cloud, Amaze partner on live e-commerce services in Thailand \n\n## Tencent Cloud, Amaze partner on live e-commerce services in Thailand\n\nTencent Cloud has signed a partnership agreement with Amaze to bring live e-commerce services to Thailand. Under the terms of the deal, Amaze will use Tencent Cloud's one-stop e-commerce Live Streaming Solution, to support management of the entire livestreaming process, from viewing and real-time interaction to content reuse and operational analytics.\n\n# Register for free and read this article\n\ngoogle icon\nlinkedin icon\n\nComplete profile",
+                  "url": "https://www.telecompaper.com/news/tencent-cloud-amaze-partner-on-live-e-commerce-services-in-thailand--1563333"
+                },
+                {
+                  "title": "Products & Services | Tencent Careers",
+                  "snippet": "On the principle of \"connecting everything\", Tencent continues to explore a range of diverse, integrated social entertainment offerings that look towards the future. Building upon high-quality content and driven by our technological innovations, We continue to explore the next generation of social and content integration. Through cross-screen, multi-platform and multi-format models, We aim to provide Internet users with diversified and multi-dimensional content, to satisfy all of our users' entertainment needs. [...] At the same time, We are firmly aware of the importance of copyright and IP to the protection of creative industries. With respect to copyright, We endeavour to explore potential IPs in the content business ecosystem. At present, our digital content products include: Online Ga... (617 chars truncated)",
+                  "url": "https://careers.tencent.com/en-us/productservice.html"
+                },
+                {
+                  "title": "Products & Services | Tencent Cloud",
+                  "snippet": "### 数据应用与可视化\n\n### 腾讯云BI\n\n高效、强大、迅捷的新一代敏捷自助BI服务平台\n\n### 软件产品\n\n### 专有云软件\n\n### 腾讯专有云企业版\n\n腾讯专有云企业版（Tencent Cloud Enterprise,简称Tencent TCE）是基于腾讯云成熟产品体系的企业级专有云平台，为企业提供自主可控、弹性伸缩的全栈服务能力。\n\n### TencentOS Server\n\nTencentOS Server是腾讯云研发的企业级Linux服务器操作系统，以稳定、可靠、安全为核心价值，致力于为产业提供合规可靠的数字化底座。\n\n### 腾讯专有云 PaaS 平台\n\n腾讯专有云 PaaS 平台（Tencent Cloud-native Suite，简称Tencent TCS）是面向企业云原生转型的一站式云原生平台，支持本地裸金属或第三方IaaS部署。\n\n### 腾讯云数据库\n\n### TDSQL\n\n腾讯云自研企业级数据库软件产品，旨在提供卓越的性能、弹性和稳定性，采用金融级高可用方案，为关键业务应用提供持续可用性和可信数据保护。\n\n### 数据开发与治理\n\n### 大数据处理套件 TBDS\n\n大数据处理套件 TBDS 提供安全、可靠、易用的一站式、高性能、企业级大数据存储计算分析平台。\n\n### 人工智能与机器学习\n\n### AI 基础产品\n\n### 人脸识别\n\n精准实时的人脸检测、分析、与海量人脸搜索服务\n\n### 语音识别\n\n提供业界非常具有性价比的语音识别服务，超高识别准确率，适用多场景\n\n### 语音合成\n\n专业智能高效的语音处理服务\n\n### 机器翻译\n\n支持十余种语言的高效准确翻译服务\n\n### 文字识别\n\n精准、快速、多场景的图像文字识别服务\n\n### 图像创作 [...] 支持十余种语言的高效准确翻译服务\n\n### 文字识别\n\n精准、快速、多场... (1560 chars truncated)",
+                  "url": "https://www.tencentcloud.com/product"
+                },
+                "... (9 more items)"
+              ],
+              "answer_preview": "Tencent partners with Treeal to bring PalmAI to Brazil, and with Blooming Talk to enhance global artist-fan messaging. Tencent also collaborates with the UN to develop the UN Solutions Hub on TanLIVE for climate action. Tencent's latest initiatives include new applications for TanLIVE to accelerate climate data access.",
+              "query_attempts": [
+                {
+                  "attempt_index": "1",
+                  "query": "Tencent products partnerships latest news",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "2",
+                  "query": "Tencent official site products",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "3",
+                  "query": "Tencent wikipedia partnerships",
+                  "raw_result_count": "6",
+                  "added_result_count": "5",
+                  "error": "None"
+                }
+              ],
+              "result_count": "17",
+              "dedupe_count": "17",
+              "search_success": "True",
+              "public_products_candidates": [
+                "Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI ... ## Share this article\n\nShare this article\n\nSÃO PAULO, Feb. 5, 2026 /PRNewswire/ -- Treeal, a Brazilian fintech company specializing in innovative payment so",
+                "Tencent Cloud expands partnership with Blooming Talk to power ... Marketech APAC\n\n# Tencent Cloud expands partnership with Blooming Talk to power global artist-fan messaging\n\n## -\n\n## February 10, 2026\n\nOur What’s NEXT i",
+                "Tencent Cloud Powers Blooming Talk's Next-Gen Fan Messaging to ... ### Modal title\n\n## Also from this source\n\nTencent Cloud and Treeal Partnership Brings Next-Gen PalmAI Service to Brazil\n\n### Tencent Cloud and Treeal Pa",
+                "Tencent Unveils Four New Global Applications of TanLIVE at ... Supporting the UN Solutions Hub\n\nTencent is partnering with the UN Framework Convention on Climate Change (UNFCCC), the UN Global Innovation Hub and the Glob",
+                "Tencent Cloud, Amaze partner on live e-commerce services in ... burger icon\ntelecompaper logo\nsearch icon\nsearch icon\nTencent Cloud, Amaze partner on live e-commerce services in Thailand \n\n## Tencent Cloud, Amaze partner",
+                "Products & Services | Tencent Careers On the principle of \"connecting everything\", Tencent continues to explore a range of diverse, integrated social entertainment offerings that look towards the future. Building upon hi",
+                "Products & Services | Tencent Cloud ### 数据应用与可视化\n\n### 腾讯云BI\n\n高效、强大、迅捷的新一代敏捷自助BI服务平台\n\n### 软件产品\n\n### 专有云软件\n\n### 腾讯专有云企业版\n\n腾讯专有云企业版（Tencent Cloud Enterprise,简称Tencent TCE）是基于腾讯云成熟产品体系的企业级专有云平台，为企业提供自主可控、弹性伸缩的全栈服务能力。\n\n### Te",
+                "Products & Services | Tencent Cloud Get Started For Free\n\n# Products & Services\n\n## Explore ever-expanding Tencent Cloud products and services and start building your business in Tencent Cloud.\n\n Cloud Virtual Machine\n C"
+              ],
+              "_truncated_keys": 2
+            },
+            "metadata": {
+              "source": "tavily",
+              "query_attempts": [
+                {
+                  "attempt_index": 1,
+                  "query": "Tencent products partnerships latest news",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 2,
+                  "query": "Tencent official site products",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 3,
+                  "query": "Tencent wikipedia partnerships",
+                  "raw_result_count": 6,
+                  "added_result_count": 5,
+                  "error": null
+                }
+              ],
+              "result_count": 17,
+              "dedupe_count": 17,
+              "answer_preview": "Tencent partners with Treeal to bring PalmAI to Brazil, and with Blooming Talk to enhance global artist-fan messaging. Tencent also collaborates with the UN to develop the UN Solutions Hub on TanLIVE for climate action. Tencent's latest initiatives include new applications for TanLIVE to accelerate climate data access."
+            }
+          }
+        },
+        {
+          "tool_name": "generate_document",
+          "args_digest": "e58842c17cef",
+          "duration_ms": 1.4882499817758799,
+          "status": "success",
+          "output_hash": "c8101d5141e6",
+          "details": {
+            "input_payload": {
+              "template_name": "consulting_brief.md.j2"
+            },
+            "output_payload_preview": {
+              "document": "# 顾问简报: Tencent\n\n## 执行摘要\n腾讯公司在2026年继续扩大其云与AI技术生态，先后与Treeal、Blooming Talk、UN框架及Amaze等多方合作，推出PalmAI支付服务、全球粉丝互动平台、气候行动平台及直播电商解决方案，进一步巩固其在云计算、人工智能与行业垂直化服务的领先地位。\n\n## 公开信息发现\n- 腾讯云与巴西金融科技公司Treeal合作，推出PalmAI服务，提供无接触高精度支付与门禁解决方案。\n- 腾讯云与Blooming Talk深化合作，利用Chat（IM）技术打造全球粉丝互动平台，提升实时沟通体验。\n- 腾讯云与联合国框架公约（UNFCCC）、联合国全球创新中心及全球赋能可持续发展倡议（GeSI）合作，基于TanLIVE平台构建UN Solutions Hub，支持城市与政府加速气候行动。\n- 腾讯云与Amaze签署合作协议，提供一站式直播电商解决方案，支持泰国市场的直播运营与数据分析。\n- Public products: Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI ... ## Share this article\n\nShare this article\n\nSÃO PAULO, Feb. 5, 2026 /PRNewswire/ -- Treeal, a Brazilian fintech company specializing in innovative payment so\n\n## 内部关系信号\n- 是否存在内部记录: **是**\n- 项目风险等级: **low**\n- 内部说明（已脱敏）: 内部参与已存在。项目名称：[REDACTED]。预算：[REDACTED]。内部产品线：[REDACTED]。\n\n## 敏感字段（顾问视图）\n- 项目... (773 chars truncated)",
+              "template_name": "consulting_brief.md.j2",
+              "document_hash": "2a5dfd864252"
+            },
+            "metadata": {
+              "artifact_kind": "briefing",
+              "composer_recovery_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 1.8379159737378359,
+          "status": "success",
+          "output_hash": "e04a37610fc8",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "document": "# 顾问简报: Tencent\n\n## 执行摘要\n腾讯公司在2026年继续扩大其云与AI技术生态，先后与Treeal、Blooming Talk、UN框架及Amaze等多方合作，推出PalmAI支付服务、全球粉丝互动平台、气候行动平台及直播电商解决方案，进一步巩固其在云计算、人工智能与行业垂直化服务的领先地位。\n\n## 公开信息发现\n- 腾讯云与巴西金融科技公司Treeal合作，推出PalmAI服务，提供无接触高精度支付与门禁解决方案。\n- 腾讯云与Blooming Talk深化合作，利用Chat（IM）技术打造全球粉丝互动平台，提升实时沟通体验。\n- 腾讯云与联合国框架公约（UNFCCC）、联合国全球创新中心及全球赋能可持续发展倡议（GeSI）合作，基于TanLIVE平台构建UN Solutions Hub，支持城市与政府加速气候行动。\n- 腾讯云与Amaze签署合作协议，提供一站式直播电商解决方案，支持泰国市场的直播运营与数据分析。\n- Public products: Tencent Cloud and Treeal Partnership Brings Next-Gen PalmAI ... ## Share this article\n\nShare this article\n\nSÃO PAULO, Feb. 5, 2026 /PRNewswire/ -- Treeal, a Brazilian fintech company specializing in innovative payment so\n\n## 内部关系信号\n- 是否存在内部记录: **是**\n- 项目风险等级: **low**\n- 内部说明（已脱敏）: 内部参与已存在。项目名称：[REDACTED]。预算：[REDACTED]。内部产品线：[REDACTED]。\n\n## 敏感字段（顾问视图）\n- 项目... (773 chars truncated)",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "2a5dfd864252"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 4,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "briefing_full",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 4,
+        "fact_verdict": "pass",
+        "fact_reason": "Most claims in the candidate output are supported by web evidence, including partnerships with Treeal, Blooming Talk, UNFCCC/GeSI for the UN Solutions Hub, and Amaze for live e-commerce in Thailand. The use of Tencent Cloud Chat (IM), TanLIVE infrastructure, and PalmAI are all evidenced. The internal_db confirms internal engagement and low risk. One minor issue is the inclusion of a raw candidate text fragment under 'Public products' in the output, which is not properly processed and lacks grounding as a product name, slightly reducing factual precision. However, this does not undermine the overall evidence alignment.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": 1,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": true,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-web-openai",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "web_only",
+      "resolved_task_type": "web_only",
+      "company": "OpenAI",
+      "risk_tier": "unknown",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-web-openai-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 23447.0,
+      "run_id": "pf-2b582872c7fb",
+      "trace_id": "1cfd6a74579caadf43bf07c4b2ae9ce3",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/1cfd6a74579caadf43bf07c4b2ae9ce3",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=web_only, company=OpenAI, language=English",
+          "started_at": "2026-02-25T18:13:43.411228+00:00",
+          "ended_at": "2026-02-25T18:13:43.411418+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=1",
+          "started_at": "2026-02-25T18:13:43.411851+00:00",
+          "ended_at": "2026-02-25T18:13:45.992478+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=1, task=web_only",
+          "started_at": "2026-02-25T18:13:45.993319+00:00",
+          "ended_at": "2026-02-25T18:13:45.993511+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_public_web",
+          "status": "completed",
+          "message": "public web retrieval completed",
+          "started_at": "2026-02-25T18:13:45.994247+00:00",
+          "ended_at": "2026-02-25T18:13:55.311326+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "chat output generated",
+          "started_at": "2026-02-25T18:13:55.312681+00:00",
+          "ended_at": "2026-02-25T18:14:02.403628+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:02.406331+00:00",
+          "ended_at": "2026-02-25T18:14:02.406908+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:02.407951+00:00",
+          "ended_at": "2026-02-25T18:14:02.410284+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=0",
+          "started_at": "2026-02-25T18:14:02.411334+00:00",
+          "ended_at": "2026-02-25T18:14:02.411472+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:02.412521+00:00",
+          "ended_at": "2026-02-25T18:14:02.412697+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "search_public_web",
+          "args_digest": "8c1698ade90d",
+          "duration_ms": 9313.982957974076,
+          "status": "success",
+          "output_hash": "27fdc5f0adb3",
+          "details": {
+            "input_payload": {
+              "company_name": "OpenAI"
+            },
+            "output_payload_preview": {
+              "company_name": "OpenAI",
+              "results": [
+                {
+                  "title": "OpenAI Partners With Consulting Giants in Enterprise AI Push",
+                  "snippet": "February 24, 2026\n\nPic of OpenAI CEO Sam Altman\n\nOpenAI entered into a series of alliances with some of the world’s leading consulting firms to accelerate the roll-out of its recently released enterprise AI platform, Frontier.\n\nUnveiled in early February, the platform has been created to build, manage and integrate AI agent co-workers across an entire business.\n\nNow OpenAI has introduced Frontier Alliances, a program of partnerships with key players Boston Consulting Group, McKinsey, Accenture and Capgemini, designed to encourage takeup of Frontier.\n\nAccording to a release from OpenAI, each company has signed a multi-year partnership to help enterprise customers “define strategy, integrate systems, redesign workflows and scale deployment globally”. [...] #### Recent in Data\n\nPic of Meta AI... (1405 chars truncated)",
+                  "url": "https://aibusiness.com/generative-ai/openai-partners-with-consulting-giants-for-enterprise-ai"
+                },
+                {
+                  "title": "BCG and OpenAI Expand Partnership With OpenAI Frontier Alliance",
+                  "snippet": "## Share this article\n\nShare this article\n\nBOSTON, Feb. 24, 2026 /PRNewswire/ -- Boston Consulting Group (BCG) and OpenAI today announced a multiyear expansion of their partnership with Frontier Alliance to continue to help organizations move beyond experimentation and accelerate enterprise-scale AI transformation. [...] ## View All Consumer Products & Retail\n\n## Entertain­ment & Media\n\n## View All Entertain­ment & Media\n\n## Health\n\n## View All Health\n\n## Sports\n\n## View All Sports\n\n## Travel\n\n## View All Travel\n\n## Policy & Public Interest\n\n## View All Policy & Public Interest\n\n## People & Culture\n\n## View All People & Culture\n\nPR Newswire: news distribution, targeting and monitoring Home\n\nChat\n\nContact Us\n\n# BCG and OpenAI Expand Partnership With OpenAI Frontier Alliance\n\nLOGO\n\n## News p... (455 chars truncated)",
+                  "url": "https://www.prnewswire.com/apac/news-releases/bcg-and-openai-expand-partnership-with-openai-frontier-alliance-302694660.html"
+                },
+                {
+                  "title": "OpenAI calls in the consultants for its enterprise push - TechCrunch",
+                  "snippet": "# OpenAI calls in the consultants for its enterprise push\n\nOpenAI is beefing up partnerships with four major consulting giants as the AI company looks to grow its enterprise business in 2026.\n\nOpenAI announced on Monday the “Frontier Alliances,” a signal that the AI lab is willing to try different approaches to get enterprises to meaningfully adopt its technology. The alliance includes multi-year partnerships between OpenAI and four major consulting firms, Boston Consulting Group (BCG), McKinsey, Accenture, and Capgemini, to sell its enterprise products.\n\nOpenAI’s Forward Deployed Engineering team will work with the consulting giants to help them implement OpenAI’s enterprise-focused technologies like OpenAI Frontier into customers’ tech stacks. [...] The company launched OpenAI Frontier i... (1401 chars truncated)",
+                  "url": "https://techcrunch.com/2026/02/23/openai-calls-in-the-consultants-for-its-enterprise-push/"
+                },
+                {
+                  "title": "Capgemini joins forces with OpenAI to accelerate new era of AI ...",
+                  "snippet": "Paris, February 23, 2026 — Capgemini today announced a new strategic partnership with OpenAI to accelerate the next era of enterprise AI transformation with Frontier, OpenAI’s new platform for building, deploying, and managing AI coworkers that can do real work across the enterprise. As a founding member of the OpenAI Frontier Alliance, Capgemini will work to address the AI opportunity gap by focusing on the business, data, organizational, and systems integration challenges faced by clients, to deploy AI enterprise-wide. By combining deep industry and domain-specific process expertise, data and governance capabilities, and ready-to-deploy digital and AI transformation assets, Capgemini is well placed to help businesses redefine how agents are built and run in their organizations, so AI [..... (1472 chars truncated)",
+                  "url": "https://www.capgemini.com/news/press-releases/capgemini-joins-forces-with-openai-to-accelerate-new-era-of-ai-powered-enterprise-transformation-with-frontier-alliance/"
+                },
+                {
+                  "title": "OpenAI lands multiyear deals with consulting giants in enterprise push",
+                  "snippet": "CNBC\nJoin IC\nJoin Pro\nJoin IC\nJoin Probackground of header\nforeground of header\n\n# OpenAI lands multiyear deals with consulting giants in enterprise push\n\nthumbnail\n\nIn this article\n\nOpenAI on Monday announced it is entering into multiyear partnerships with four consulting firms that will help the company deploy its enterprise platform called Frontier.\n\nThe artificial intelligence startup said it has formed \"Frontier Alliances\" with Accenture, Boston Consulting Group, Capgemini and McKinsey & Co., according to a release. The company declined to share the financial details of the partnerships. [...] Frontier, which OpenAI unveiled earlier this month, acts as an intelligence layer that stitches together disparate systems and data within an organization. It aims to make it easier for companie... (1226 chars truncated)",
+                  "url": "https://www.cnbc.com/2026/02/23/open-ai-consulting-accenture-boston-capgemini-mckinsey-frontier.html"
+                },
+                {
+                  "title": "OpenAI News",
+                  "snippet": "Stay up to speed on the rapid advancement of AI technology and the benefits it offers to humanity.",
+                  "url": "https://openai.com/news/"
+                },
+                {
+                  "title": "Products and applications of OpenAI - Wikipedia",
+                  "snippet": "OpenAI CEO Sam Altman and Ive have expressed a shared vision for developing AI-native devices that go beyond conventional screens and interfaces. Though specific product details have not been released, the Washington Post reports that Ive and Altman have already been working on a new product. \"The first one I’ve been working on has just completely captured my imagination,” said Jony Ive. Altman added, “I think it is the coolest piece of technology that the world will have ever seen.”\n\nThe company has also started to work in the robotics space with the goal of creating general purpose robots.\n\n## Selected bibliography\n\n[edit]\n\nThis section lists the main official publications from OpenAI on its GPT models. [...] 30. ^ a b \"OpenAI API\". OpenAI. June 11, 2020. Archived from the original on Ju... (673 chars truncated)",
+                  "url": "https://en.wikipedia.org/wiki/Products_and_applications_of_OpenAI"
+                },
+                {
+                  "title": "What Is OpenAI? Everything You Need to Know - Coursera",
+                  "snippet": "# What Is OpenAI? Everything You Need to Know\n\nWritten by Coursera Staff • Updated on\n\nOpenAI is an artificial intelligence research company that offers services such as ChatGPT. Here’s what you need to know.\n\n## Key takeaways\n\nOpenAI is an AI research company that offers a range of services, including ChatGPT, to develop AI in ways that they say benefit humanity.\n\n OpenAI began its journey in 2015, and in 2018, it released the concept of a generative pre-trained transformer (GPT), followed by the release of ChatGPT in 2022.\n\n OpenAI offers several products that serve different functions, including ChatGPT for generating text and answers, Codex for generating code in different programming languages, and Whisper for speech recognition. [...] ## OpenAI products and releases\n\nLarge language m... (1384 chars truncated)",
+                  "url": "https://www.coursera.org/articles/what-is-openai"
+                },
+                "... (10 more items)"
+              ],
+              "answer_preview": "In 2026, OpenAI formed strategic partnerships with consulting firms to boost enterprise AI adoption, including Accenture, BCG, Capgemini, and McKinsey. These alliances aim to help businesses integrate AI into their operations. The financial details of these deals were undisclosed.",
+              "query_attempts": [
+                {
+                  "attempt_index": "1",
+                  "query": "OpenAI products partnerships latest news",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "2",
+                  "query": "OpenAI official site products",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "3",
+                  "query": "OpenAI wikipedia partnerships",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                }
+              ],
+              "result_count": "18",
+              "dedupe_count": "18",
+              "search_success": "True",
+              "public_products_candidates": [
+                "OpenAI Partners With Consulting Giants in Enterprise AI Push February 24, 2026\n\nPic of OpenAI CEO Sam Altman\n\nOpenAI entered into a series of alliances with some of the world’s leading consulting firms to accelerate the ",
+                "BCG and OpenAI Expand Partnership With OpenAI Frontier Alliance ## Share this article\n\nShare this article\n\nBOSTON, Feb. 24, 2026 /PRNewswire/ -- Boston Consulting Group (BCG) and OpenAI today announced a multiyear expans",
+                "OpenAI calls in the consultants for its enterprise push - TechCrunch # OpenAI calls in the consultants for its enterprise push\n\nOpenAI is beefing up partnerships with four major consulting giants as the AI company looks ",
+                "Capgemini joins forces with OpenAI to accelerate new era of AI ... Paris, February 23, 2026 — Capgemini today announced a new strategic partnership with OpenAI to accelerate the next era of enterprise AI transformation w",
+                "OpenAI lands multiyear deals with consulting giants in enterprise push CNBC\nJoin IC\nJoin Pro\nJoin IC\nJoin Probackground of header\nforeground of header\n\n# OpenAI lands multiyear deals with consulting giants in enterprise ",
+                "Products and applications of OpenAI - Wikipedia OpenAI CEO Sam Altman and Ive have expressed a shared vision for developing AI-native devices that go beyond conventional screens and interfaces. Though specific product de",
+                "What Is OpenAI? Everything You Need to Know - Coursera # What Is OpenAI? Everything You Need to Know\n\nWritten by Coursera Staff • Updated on\n\nOpenAI is an artificial intelligence research company that offers services suc",
+                "OpenAI Newsroom | Product The Sora feed philosophy Product Feb 3, 2026\n\nImage 7: Codex Landing Page SEO\n\nIntroducing the Codex app Product Feb 2, 2026\n\nImage 8: Art Card\n\nRetiring GPT-4o, GPT-4.1, GPT-4.1 mini, and OpenA"
+              ],
+              "_truncated_keys": 2
+            },
+            "metadata": {
+              "source": "tavily",
+              "query_attempts": [
+                {
+                  "attempt_index": 1,
+                  "query": "OpenAI products partnerships latest news",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 2,
+                  "query": "OpenAI official site products",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 3,
+                  "query": "OpenAI wikipedia partnerships",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                }
+              ],
+              "result_count": 18,
+              "dedupe_count": 18,
+              "answer_preview": "In 2026, OpenAI formed strategic partnerships with consulting firms to boost enterprise AI adoption, including Accenture, BCG, Capgemini, and McKinsey. These alliances aim to help businesses integrate AI into their operations. The financial details of these deals were undisclosed."
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "8c1698ade90d",
+          "duration_ms": 1.3574589975178242,
+          "status": "success",
+          "output_hash": "a592c488c429",
+          "details": {
+            "input_payload": {
+              "company_name": "OpenAI"
+            },
+            "output_payload_preview": {
+              "document": "**OpenAI – Public Products & Partnerships (Feb 2026)**  \n\n| Category | Details | Source |\n|----------|---------|--------|\n| **Enterprise AI Platform** | *Frontier* – a no‑code, open‑software platform that lets businesses build, deploy, and manage AI agents across their entire tech stack. | https://aibusiness.com/generative-ai/openai-partners-with-consulting-giants-for-enterprise-ai |\n| **Consulting‑Firm Partnerships** | • **Boston Consulting Group (BCG)** – multi‑year alliance to accelerate enterprise‑scale AI deployment. <br>• **McKinsey & Co.** – similar multi‑year partnership. <br>• **Accenture** – partnership to help customers define strategy and integrate AI agents. <br>• **Capgemini** – partnership to address AI opportunity gaps and deliver industry‑specific solutions. | https://aibu... (1189 chars truncated)",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "954a33dcf5cc"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "search_public_web",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "search_public_web",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": false,
+      "artifact_present": false,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 2,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "web_only",
+        "intent_route_match": true,
+        "artifact_required": false,
+        "artifact_present": false,
+        "fact_score_1_5": 5,
+        "fact_verdict": "pass",
+        "fact_reason": "All claims in the candidate output are supported by web_results evidence, including the existence of the Frontier platform, its no-code functionality, multi-year partnerships with BCG, McKinsey, Accenture, and Capgemini, the purpose of these alliances, and the lack of disclosed financial terms.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": null,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": false,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-db-shell",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "db_only",
+      "resolved_task_type": "db_only",
+      "company": "Shell",
+      "risk_tier": "medium",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-db-shell-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 10533.0,
+      "run_id": "pf-197444a5dcc8",
+      "trace_id": "9d73ffeb1704b9528eff0f4a613b348a",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/9d73ffeb1704b9528eff0f4a613b348a",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=db_only, company=Shell, language=English",
+          "started_at": "2026-02-25T18:14:05.204126+00:00",
+          "ended_at": "2026-02-25T18:14:05.204341+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=2",
+          "started_at": "2026-02-25T18:14:05.204706+00:00",
+          "ended_at": "2026-02-25T18:14:09.929039+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=2, task=db_only",
+          "started_at": "2026-02-25T18:14:09.930089+00:00",
+          "ended_at": "2026-02-25T18:14:09.930297+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_internal_db",
+          "status": "completed",
+          "message": "internal db retrieval completed",
+          "started_at": "2026-02-25T18:14:09.931082+00:00",
+          "ended_at": "2026-02-25T18:14:09.932934+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "chat output generated",
+          "started_at": "2026-02-25T18:14:09.934146+00:00",
+          "ended_at": "2026-02-25T18:14:13.170510+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:13.171322+00:00",
+          "ended_at": "2026-02-25T18:14:13.171457+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:13.171890+00:00",
+          "ended_at": "2026-02-25T18:14:13.172983+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=0",
+          "started_at": "2026-02-25T18:14:13.173408+00:00",
+          "ended_at": "2026-02-25T18:14:13.173504+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:13.173948+00:00",
+          "ended_at": "2026-02-25T18:14:13.174028+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "get_company_info",
+          "args_digest": "339817a9b435",
+          "duration_ms": 1.0914999875240028,
+          "status": "success",
+          "output_hash": "73d1045b54d9",
+          "details": {
+            "input_payload": {
+              "company_name": "Shell"
+            },
+            "output_payload_preview": {
+              "record_found": "True",
+              "company_name": "Shell",
+              "industry": "Energy",
+              "public_products": [
+                "Shell Platform",
+                "Shell Collaboration Suite"
+              ],
+              "public_partnerships": [
+                "Adobe",
+                "Meta"
+              ],
+              "project_risk_level": "medium",
+              "internal_summary": "Internal engagement exists. Project name: [REDACTED]. Budget: [REDACTED]. Internal product line: [REDACTED]."
+            },
+            "metadata": {
+              "source": "internal_db"
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "339817a9b435",
+          "duration_ms": 0.7219159742817283,
+          "status": "success",
+          "output_hash": "3750fabdc7f3",
+          "details": {
+            "input_payload": {
+              "company_name": "Shell"
+            },
+            "output_payload_preview": {
+              "document": "Internal engagement exists with Shell. Project risk level: medium. Internal summary: [REDACTED]",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "79e030210d58"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "get_company_info",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "get_company_info",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": false,
+      "artifact_present": false,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 2,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "db_only",
+        "intent_route_match": true,
+        "artifact_required": false,
+        "artifact_present": false,
+        "fact_score_1_5": 4,
+        "fact_verdict": "pass",
+        "fact_reason": "All claims in the candidate output are supported by internal_db: 'Internal engagement exists' and 'Project risk level: medium' are explicitly stated. 'Internal summary: [REDACTED]' reflects redacted content from the same source. No unsupported claims are present, though minor redactions limit detail.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": null,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": false,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-doc-sony",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "doc_only",
+      "resolved_task_type": "doc_only",
+      "company": "Sony",
+      "risk_tier": "high",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-doc-sony-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 10379.0,
+      "run_id": "pf-47d02a4b2332",
+      "trace_id": "650d72e994e6bfac29f122ca1d3a2d24",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/650d72e994e6bfac29f122ca1d3a2d24",
+      "llm_attempt_count": 1,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=doc_only, company=Sony, language=English",
+          "started_at": "2026-02-25T18:14:06.976150+00:00",
+          "ended_at": "2026-02-25T18:14:06.976338+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=3",
+          "started_at": "2026-02-25T18:14:06.977035+00:00",
+          "ended_at": "2026-02-25T18:14:14.968021+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=3, task=doc_only",
+          "started_at": "2026-02-25T18:14:14.968909+00:00",
+          "ended_at": "2026-02-25T18:14:14.969044+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_internal_pdf",
+          "status": "completed",
+          "message": "internal pdf retrieval completed",
+          "started_at": "2026-02-25T18:14:14.969634+00:00",
+          "ended_at": "2026-02-25T18:14:14.974400+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "doc-only output composed",
+          "started_at": "2026-02-25T18:14:14.975344+00:00",
+          "ended_at": "2026-02-25T18:14:14.975539+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:14.976522+00:00",
+          "ended_at": "2026-02-25T18:14:14.976634+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:14.977112+00:00",
+          "ended_at": "2026-02-25T18:14:14.978541+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:14.979229+00:00",
+          "ended_at": "2026-02-25T18:14:15.093892+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:15.094254+00:00",
+          "ended_at": "2026-02-25T18:14:15.094332+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "retrieve_internal_pdf",
+          "args_digest": "7fc74eaa875e",
+          "duration_ms": 4.334665951319039,
+          "status": "success",
+          "output_hash": "232bae3cbcba",
+          "details": {
+            "input_payload": {
+              "company_name": "Sony",
+              "doc_type": "proposal"
+            },
+            "output_payload_preview": {
+              "document_found": "True",
+              "company_name": "Sony",
+              "doc_type": "proposal",
+              "language": "Japanese",
+              "file_name": "sony_proposal.pdf",
+              "classification": "confidential",
+              "sanitized_text": "Sony - 機密提案書\n顧客企業：Sony。\n機密プロジェクト名：[REDACTED]。\n予算：[REDACTED]。\n社内製品ライン：[REDACTED]。\n公開可能な要約：運用最適化とガバナンス強化を目的とする。",
+              "policy_note": "Confidential details were removed before model usage."
+            },
+            "metadata": {
+              "source": "internal_db_pdf",
+              "doc_type": "proposal",
+              "source_language": "Japanese",
+              "document_found": true,
+              "translation_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "330aea819b7e",
+          "duration_ms": 0.7572080357931554,
+          "status": "success",
+          "output_hash": "70628f89f08c",
+          "details": {
+            "input_payload": {
+              "company_name": "Sony"
+            },
+            "output_payload_preview": {
+              "document": "Retrieved the internal proposal document for Sony. A sanitized PDF copy is available via the download link.",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "fc61ba2093f2"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "retrieve_internal_pdf",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "retrieve_internal_pdf",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 2,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "doc_only",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 4,
+        "fact_verdict": "pass",
+        "fact_reason": "The claim 'Retrieved the internal proposal document for Sony' is supported by internal_pdf evidence showing a document was found with type 'proposal' and client 'Sony'. The mention of a 'sanitized PDF copy' aligns with the internal_pdf's sanitized_text and policy_note. No web or internal_db evidence contradicts this. All claims are mostly grounded, with only minor details (e.g., 'download link') not explicitly covered, but not contradicted.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": null,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": false,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-trans-tencent",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "translate_only",
+      "resolved_task_type": "translate_only",
+      "company": "Tencent",
+      "risk_tier": "low",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-trans-tencent-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 17613.0,
+      "run_id": "pf-a47e161597ff",
+      "trace_id": "09b01611113af195fefbdc374999ecf4",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/09b01611113af195fefbdc374999ecf4",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=translate_only, company=Tencent, language=English",
+          "started_at": "2026-02-25T18:14:12.724835+00:00",
+          "ended_at": "2026-02-25T18:14:12.725057+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=3",
+          "started_at": "2026-02-25T18:14:12.725587+00:00",
+          "ended_at": "2026-02-25T18:14:16.933673+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=3, task=translate_only",
+          "started_at": "2026-02-25T18:14:16.935153+00:00",
+          "ended_at": "2026-02-25T18:14:16.935408+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_internal_pdf",
+          "status": "completed",
+          "message": "internal pdf retrieval completed",
+          "started_at": "2026-02-25T18:14:16.939297+00:00",
+          "ended_at": "2026-02-25T18:14:16.943081+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "translate-only output composed",
+          "started_at": "2026-02-25T18:14:16.943982+00:00",
+          "ended_at": "2026-02-25T18:14:18.226763+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:18.227710+00:00",
+          "ended_at": "2026-02-25T18:14:18.227946+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:18.228605+00:00",
+          "ended_at": "2026-02-25T18:14:18.231739+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:18.232663+00:00",
+          "ended_at": "2026-02-25T18:14:18.238091+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:18.238661+00:00",
+          "ended_at": "2026-02-25T18:14:18.238760+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "retrieve_internal_pdf",
+          "args_digest": "ff710ed386d6",
+          "duration_ms": 3.14024998806417,
+          "status": "success",
+          "output_hash": "39597632a9e6",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent",
+              "doc_type": "proposal"
+            },
+            "output_payload_preview": {
+              "document_found": "True",
+              "company_name": "Tencent",
+              "doc_type": "proposal",
+              "language": "Chinese",
+              "file_name": "tencent_proposal.pdf",
+              "classification": "confidential",
+              "sanitized_text": "Tencent - 机密项目建议书\n客户公司：Tencent。\n机密项目名称：[REDACTED]。\n预算金额：[REDACTED]。\n内部产品线：[REDACTED]。\n公开可用摘要：聚焦运营现代化与治理优化。",
+              "policy_note": "Confidential details were removed before model usage."
+            },
+            "metadata": {
+              "source": "internal_db_pdf",
+              "doc_type": "proposal",
+              "source_language": "Chinese",
+              "document_found": true,
+              "translation_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "translate_document",
+          "args_digest": "dbce0ce57203",
+          "duration_ms": 1280.723957985174,
+          "status": "success",
+          "output_hash": "7b4ada835474",
+          "details": {
+            "input_payload": {
+              "target_language": "English",
+              "input_chars": "106"
+            },
+            "output_payload_preview": {
+              "translated_text_preview": "Tencent - Confidential Project Proposal  \nClient Company: Tencent.  \nConfidential Project Name: [REDACTED].  \nBudget Amount: [REDACTED].  \nInternal Product Line: [REDACTED].  \nPublicly Available Summary: Focus on operational modernization and governance optimization.",
+              "translated_chars": "267"
+            },
+            "metadata": {
+              "llm_provider": "together",
+              "llm_model": "openai/gpt-oss-20b",
+              "translation_reason": "translate_document_node"
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "2a297f5f214c",
+          "duration_ms": 1.3687910395674407,
+          "status": "success",
+          "output_hash": "f1bca7498323",
+          "details": {
+            "input_payload": {
+              "company_name": "Tencent"
+            },
+            "output_payload_preview": {
+              "document": "Tencent - Confidential Project Proposal  \nClient Company: Tencent.  \nConfidential Project Name: [REDACTED].  \nBudget Amount: [REDACTED].  \nInternal Product Line: [REDACTED].  \nPublicly Available Summary: Focus on operational modernization and governance optimization.",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "6d93e1f4f3f0"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "retrieve_internal_pdf",
+        "translate_document",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "retrieve_internal_pdf",
+        "translate_document",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 3,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "translate_only",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 5,
+        "fact_verdict": "pass",
+        "fact_reason": "All claims in the candidate output are directly supported by the sanitized_text in internal_pdf, which confirms the document type, client company, redacted fields, and publicly available summary. No unsupported claims are present.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": 0.9295699596405029,
+        "structure_score": null,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": true,
+        "translation_reference_model": "tencent/Hunyuan-MT-7B",
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": true,
+          "structure_score": false,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-trans-volkswagen",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "translate_only",
+      "resolved_task_type": "translate_only",
+      "company": "Volkswagen",
+      "risk_tier": "medium",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-trans-volkswagen-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 16006.0,
+      "run_id": "pf-6f3649dc9e00",
+      "trace_id": "8c02b35c77cad1807587f934ce4de73f",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/8c02b35c77cad1807587f934ce4de73f",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=translate_only, company=Volkswagen, language=English",
+          "started_at": "2026-02-25T18:14:14.331662+00:00",
+          "ended_at": "2026-02-25T18:14:14.331877+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=3",
+          "started_at": "2026-02-25T18:14:14.333392+00:00",
+          "ended_at": "2026-02-25T18:14:16.408759+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=3, task=translate_only",
+          "started_at": "2026-02-25T18:14:16.410238+00:00",
+          "ended_at": "2026-02-25T18:14:16.410474+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_internal_pdf",
+          "status": "completed",
+          "message": "internal pdf retrieval completed",
+          "started_at": "2026-02-25T18:14:16.411435+00:00",
+          "ended_at": "2026-02-25T18:14:16.417973+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "translate-only output composed",
+          "started_at": "2026-02-25T18:14:16.418942+00:00",
+          "ended_at": "2026-02-25T18:14:19.902773+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:19.904442+00:00",
+          "ended_at": "2026-02-25T18:14:19.904847+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:19.905828+00:00",
+          "ended_at": "2026-02-25T18:14:19.908625+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:19.909568+00:00",
+          "ended_at": "2026-02-25T18:14:19.914731+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:19.915483+00:00",
+          "ended_at": "2026-02-25T18:14:19.915625+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "retrieve_internal_pdf",
+          "args_digest": "019397e2b435",
+          "duration_ms": 5.686540971510112,
+          "status": "success",
+          "output_hash": "245d179cbe71",
+          "details": {
+            "input_payload": {
+              "company_name": "Volkswagen",
+              "doc_type": "proposal"
+            },
+            "output_payload_preview": {
+              "document_found": "True",
+              "company_name": "Volkswagen",
+              "doc_type": "proposal",
+              "language": "German",
+              "file_name": "volkswagen_proposal.pdf",
+              "classification": "confidential",
+              "sanitized_text": "Volkswagen - Vertraulicher Projektvorschlag\nKundenunternehmen: Volkswagen.\nVertraulicher Projektname: [REDACTED].\nVorgeschlagenes Budget: [REDACTED].\nInterner Produktstrom: [REDACTED].\nÖffentlich sichere Zusammenfassung: betriebliche Modernisierung und Governance.",
+              "policy_note": "Confidential details were removed before model usage."
+            },
+            "metadata": {
+              "source": "internal_db_pdf",
+              "doc_type": "proposal",
+              "source_language": "German",
+              "document_found": true,
+              "translation_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "translate_document",
+          "args_digest": "644d6f186496",
+          "duration_ms": 3481.3683750107884,
+          "status": "success",
+          "output_hash": "1afee2ed2ef2",
+          "details": {
+            "input_payload": {
+              "target_language": "English",
+              "input_chars": "264"
+            },
+            "output_payload_preview": {
+              "translated_text_preview": "Volkswagen - Confidential Project Proposal\nClient company: Volkswagen.\nConfidential project name: [REDACTED].\nProposed budget: [REDACTED].\nInternal product stream: [REDACTED].\nPublicly safe summary: operational modernization and governance.",
+              "translated_chars": "240"
+            },
+            "metadata": {
+              "llm_provider": "together",
+              "llm_model": "openai/gpt-oss-20b",
+              "translation_reason": "translate_document_node"
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "960da1026dd5",
+          "duration_ms": 1.39683298766613,
+          "status": "success",
+          "output_hash": "c8eca4a6d0ac",
+          "details": {
+            "input_payload": {
+              "company_name": "Volkswagen"
+            },
+            "output_payload_preview": {
+              "document": "Volkswagen - Confidential Project Proposal\nClient company: Volkswagen.\nConfidential project name: [REDACTED].\nProposed budget: [REDACTED].\nInternal product stream: [REDACTED].\nPublicly safe summary: operational modernization and governance.",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "5f54bf8330b1"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "retrieve_internal_pdf",
+        "translate_document",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "retrieve_internal_pdf",
+        "translate_document",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 3,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "translate_only",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 5,
+        "fact_verdict": "pass",
+        "fact_reason": "All claims in the candidate output are directly translated from the sanitized_text in internal_pdf, which is a trusted evidence source. The structure and content match exactly, with no unsupported statements.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": 0.8971907496452332,
+        "structure_score": null,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": true,
+        "translation_reference_model": "tencent/Hunyuan-MT-7B",
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": true,
+          "structure_score": false,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-brief-siemens-de",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "briefing_full",
+      "resolved_task_type": "briefing_full",
+      "company": "Siemens",
+      "risk_tier": "medium",
+      "input_language": "German",
+      "expected_output_language": "German",
+      "instruction_style": "polite",
+      "case_id": "accuracy-brief-siemens-de-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 40056.0,
+      "run_id": "pf-b6ebdb06095f",
+      "trace_id": "52cf5c1a2499e9db6d1bc11fe04f245b",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/52cf5c1a2499e9db6d1bc11fe04f245b",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=briefing_full, company=Siemens, language=German",
+          "started_at": "2026-02-25T18:14:15.862988+00:00",
+          "ended_at": "2026-02-25T18:14:15.863218+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=4",
+          "started_at": "2026-02-25T18:14:15.863801+00:00",
+          "ended_at": "2026-02-25T18:14:18.357579+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "valid_steps=4, task=briefing_full",
+          "started_at": "2026-02-25T18:14:18.359249+00:00",
+          "ended_at": "2026-02-25T18:14:18.359492+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "retrieve_parallel",
+          "status": "completed",
+          "message": "internal db + web retrieval completed",
+          "started_at": "2026-02-25T18:14:18.360370+00:00",
+          "ended_at": "2026-02-25T18:14:30.429170+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "template document generated",
+          "started_at": "2026-02-25T18:14:30.430123+00:00",
+          "ended_at": "2026-02-25T18:14:48.680924+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=German, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:48.682186+00:00",
+          "ended_at": "2026-02-25T18:14:48.684717+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:48.685836+00:00",
+          "ended_at": "2026-02-25T18:14:48.688179+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=1",
+          "started_at": "2026-02-25T18:14:48.688847+00:00",
+          "ended_at": "2026-02-25T18:14:48.820101+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:48.820522+00:00",
+          "ended_at": "2026-02-25T18:14:48.820600+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "get_company_info",
+          "args_digest": "88ba655314f7",
+          "duration_ms": 0.958415970671922,
+          "status": "success",
+          "output_hash": "d7fa8905eb10",
+          "details": {
+            "input_payload": {
+              "company_name": "Siemens"
+            },
+            "output_payload_preview": {
+              "record_found": "True",
+              "company_name": "Siemens",
+              "industry": "Industrial Technology",
+              "public_products": [
+                "Siemens Platform",
+                "Siemens Collaboration Suite"
+              ],
+              "public_partnerships": [
+                "Accenture",
+                "Capgemini"
+              ],
+              "project_risk_level": "medium",
+              "internal_summary": "Internal engagement exists. Project name: [REDACTED]. Budget: [REDACTED]. Internal product line: [REDACTED]."
+            },
+            "metadata": {
+              "source": "internal_db"
+            }
+          }
+        },
+        {
+          "tool_name": "search_public_web",
+          "args_digest": "88ba655314f7",
+          "duration_ms": 12066.019749967381,
+          "status": "success",
+          "output_hash": "63ac2e7a9165",
+          "details": {
+            "input_payload": {
+              "company_name": "Siemens"
+            },
+            "output_payload_preview": {
+              "company_name": "Siemens",
+              "results": [
+                {
+                  "title": "Siemens and Accenture partnership",
+                  "snippet": "### 20% faster time to market\n\nA logo for Accenture, a multinational professional services company, displayed on a white background.\n\n### Latest news: New Accenture Siemens business group\n\nDedicated business practice with 7,000 professionals to drive development of software-defined products & factories.\n\n### Auto: Scalable Software Defined Vehicle Framework\n\nVehicles continue to become more complex, with software enabling much innovation. Together, Siemens and Accenture provide automakers a scalable and integrated software-defined vehicle (SDV) framework. Partner with us to shape the future of your business, with less cost, faster innovation and opportunities for new revenue streams.\n\n### Battery: Data-driven approach for modern battery engineering and manufacturing [...] A starry night sk... (1375 chars truncated)",
+                  "url": "https://www.siemens.com/en-gb/partners/software/accenture/"
+                },
+                {
+                  "title": "Siemens and CAPHENIA Partner to Scale SAF Production",
+                  "snippet": "Airport Industry-News\n\nClose Menu\n\n# Siemens and CAPHENIA Partner to Scale SAF Production\n\n### Author:\n\nJoey Stoate\n\n### Published:\n\nSiemens & CAPHENIA have entered a new partnership to scale the production of Sustainable Aviation Fuel (SAF).\n\nThe ultimate goal of the partnership is to standardise a concept that enables the global rollout of commercial SAF production facilities utilising Siemens’ digitalisation and automation solutions for CAPHENIA’s plasma technology, which converts bio-methane into synthesis gas.\n\nCAPHENIA's plasma Boudouard reactor in the Frankfurt-Höchst industrial park [...] This is exactly where Siemens comes in: with our digitalization and automation solutions, we are making CAPHENIA's technology industrially scalable and thus accelerating its global market ramp-up.... (1169 chars truncated)",
+                  "url": "https://airportindustry-news.com/siemens-and-caphenia-partner-to-scale-saf-production/"
+                },
+                {
+                  "title": "Siemens unveils industrial AI innovations at CES 2026",
+                  "snippet": "Siemens highlighted its long-standing partnership with NVIDIA at CES 2026: The companies are expanding their partnership to build the Industrial AI Operating System – helping customers revolutionize how they design, engineer, and operate physical systems. Siemens and NVIDIA will work together to build AI-accelerated industrial solutions across the full lifecycle of products and production, enabling faster innovation, continuous optimization, and more resilient, sustainable manufacturing. The companies also aim to build the world’s first fully AI-driven, adaptive manufacturing sites globally, starting in 2026 with the Siemens Electronics Factory in Erlangen, Germany, as the first blueprint.\n\nRoland Busch and Jensen Huang shaking hands at CES 2026 [...] New Industrial Copilots Streamline Man... (1287 chars truncated)",
+                  "url": "https://news.siemens.com/en-us/siemens-unveils-technologies-to-accelerate-the-industrial-ai-revolution-at-ces-2026/"
+                },
+                {
+                  "title": "Siemens Newsroom | Siemens",
+                  "snippet": "Four professionals collaborate, reviewing numerous documents and charts displayed on a dark wall, discussing ideas and making adjustments.\n\n# Newsroom\n\nRead, watch and listen to the latest news, stories and updates from Siemens and our community of users, partners and the wider Siemens ecosystem.\n\n### Siemens 2030 sustainability commitments\n\nSiemens generates momentum toward 2030 sustainability targets, delivering measurable progress in fiscal 2025\n\n## News highlights\n\nPerson analyzing data visualization on computer screen in software engineering workspace\n\n### Siemens completes acquisition of Dotmatics\n\nSiemens AG announced that it has completed the acquisition of Dotmatics, a leading provider of Life Sciences R&D software.\n\n### Siemens acquires Altair Engineering [...] ### Siemens acquir... (591 chars truncated)",
+                  "url": "https://news.siemens.com/en-us/"
+                },
+                {
+                  "title": "Siemens partnership creates UK's first fully customisable ...",
+                  "snippet": "logo image\nlogo image\nSiemens partnership creates UK’s first fully customisable autonomous mobile robot (AMR) manufacturing capability: AMR-Expert-Technology-Group-18- original\n\n24 Feb 2026\n\n# Siemens partnership creates UK’s first fully customisable autonomous mobile robot (AMR) manufacturing capability\n\nLeading technology company Siemens has partnered with Expert Technologies Group and RMGroup to manufacture the UK's first fully customisable autonomous mobile robots.\n\nThe collaboration represents a strategically important milestone for UK industrial automation, creating the first comprehensive end-to-end solution for autonomous mobile robotics that will enable manufacturers to boost productivity and efficiency at their sites. [...] Paul Fletcher, Senior Manager at Expert Technologies Gro... (1373 chars truncated)",
+                  "url": "https://news.siemens.co.uk/news/siemens-partnership-creates-uks-first-fully-customisable-autonomous-mobile-robot-amr-manufacturing-capability"
+                },
+                {
+                  "title": "Press | Company | Siemens",
+                  "snippet": "### HD Hyundai selects Siemens Xcelerator for integrated digital shipbuilding platform\n\n### Siemens and Stadler consortium to deliver fully automated trains for S-Bane Copenhagen\n\n### Siemens virtualized protection for power grids cuts costs, saves space in digital substations\n\n### Siemens and NVIDIA Expand Partnership to Build the Industrial AI Operating System\n\n### Siemens' AI powered Nanjing facility named World Economic Forum Global Lighthouse Factory\n\n## Press Releases\n\n### Siemens and CAPHENIA accelerate scale-up of Sustainable Aviation Fuel\n\n### Siemens and CAPHENIA accelerate scale-up of Sustainable Aviation Fuel\n\n### HD Hyundai selects Siemens Xcelerator for integrated digital shipbuilding platform\n\n## Features\n\n### Siemens at the SPS fair 2025 [...] ## Features\n\n### Siemens at th... (762 chars truncated)",
+                  "url": "https://press.siemens.com/global/en"
+                },
+                {
+                  "title": "Products | Siemens",
+                  "snippet": "Read more [...] + Healthcare\n  + Heavy equipment\n  + Higher education\n  + Home lifestyle products\n  + Life sciences\n  + Intralogistics\n  + Machine building\n  + Marine\n  + Metals\n  + Mining\n\n  + Oil and gas\n  + Power utilities\n  + Pulp and paper\n  + Semiconductors\n  + Solar\n  + Tires\n  + Transportation logistics\n  + Water and waste\n  + Wind\n Partner ecosystem\n\n  Partner Ecosystem homepage\n\n  Discover our partners and their solutionsBecome a part of our diverse ecosystemFind tools and resources\n Topics and insights\n\n  Featured topics\n\n  + Industrial AI\n  + Digital transformation\n  + Digital twin\n  + Autonomous infrastructure\n  + Software-defined automation\n  + Sustainability\n\n  Innovation [...] Skip to main content\n\nSiemens\n\n Products & services\n\n  See all products\n\n  Connectivity, networkin... (681 chars truncated)",
+                  "url": "https://www.siemens.com/en-us/products/"
+                },
+                {
+                  "title": "Siemens home | Siemens",
+                  "snippet": "Explore all communities\n\nLogin\n\nSiemens\n\n   Products & services   Back Products & services  Connectivity, networking and cybersecurity Control and programming systems Data, cloud and advanced technologies Energy and power systems Motion, drives and power electronics Product design, engineering and lifecycle management Production operations Services Technologies for buildings Transportation and mobility See all products  Connectivity, networking and cybersecurity Control and programming systems Data, cloud and advanced technologies Energy and power systems Motion, drives and power electronics Product design, engineering and lifecycle management Production operations Services Technologies for buildings Transportation and mobility       \n   Solutions  \n\nBack\n\nBy strategic topic [...] Siemens ... (1414 chars truncated)",
+                  "url": "https://www.siemens.com/en-us/"
+                },
+                "... (10 more items)"
+              ],
+              "answer_preview": "Siemens partners with Accenture for digital transformation, CAPHENIA for SAF production, and NVIDIA for industrial AI innovations. The latest news highlights Siemens' role in creating the UK's first customisable autonomous mobile robot.",
+              "query_attempts": [
+                {
+                  "attempt_index": "1",
+                  "query": "Siemens products partnerships latest news",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "2",
+                  "query": "Siemens official site products",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                },
+                {
+                  "attempt_index": "3",
+                  "query": "Siemens wikipedia partnerships",
+                  "raw_result_count": "6",
+                  "added_result_count": "6",
+                  "error": "None"
+                }
+              ],
+              "result_count": "18",
+              "dedupe_count": "18",
+              "search_success": "True",
+              "public_products_candidates": [
+                "Siemens and Accenture partnership ### 20% faster time to market\n\nA logo for Accenture, a multinational professional services company, displayed on a white background.\n\n### Latest news: New Accenture Siemens business grou",
+                "Siemens and CAPHENIA Partner to Scale SAF Production Airport Industry-News\n\nClose Menu\n\n# Siemens and CAPHENIA Partner to Scale SAF Production\n\n### Author:\n\nJoey Stoate\n\n### Published:\n\nSiemens & CAPHENIA have entered a ",
+                "Siemens unveils industrial AI innovations at CES 2026 Siemens highlighted its long-standing partnership with NVIDIA at CES 2026: The companies are expanding their partnership to build the Industrial AI Operating System –",
+                "Siemens Newsroom | Siemens Four professionals collaborate, reviewing numerous documents and charts displayed on a dark wall, discussing ideas and making adjustments.\n\n# Newsroom\n\nRead, watch and listen to the latest news",
+                "Siemens partnership creates UK's first fully customisable ... logo image\nlogo image\nSiemens partnership creates UK’s first fully customisable autonomous mobile robot (AMR) manufacturing capability: AMR-Expert-Technology-",
+                "Press | Company | Siemens ### HD Hyundai selects Siemens Xcelerator for integrated digital shipbuilding platform\n\n### Siemens and Stadler consortium to deliver fully automated trains for S-Bane Copenhagen\n\n### Siemens vi",
+                "Products | Siemens Read more [...] + Healthcare\n  + Heavy equipment\n  + Higher education\n  + Home lifestyle products\n  + Life sciences\n  + Intralogistics\n  + Machine building\n  + Marine\n  + Metals\n  + Mining\n\n  + Oil and",
+                "Siemens home | Siemens Explore all communities\n\nLogin\n\nSiemens\n\n   Products & services   Back Products & services  Connectivity, networking and cybersecurity Control and programming systems Data, cloud and advanced techn"
+              ],
+              "_truncated_keys": 2
+            },
+            "metadata": {
+              "source": "tavily",
+              "query_attempts": [
+                {
+                  "attempt_index": 1,
+                  "query": "Siemens products partnerships latest news",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 2,
+                  "query": "Siemens official site products",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                },
+                {
+                  "attempt_index": 3,
+                  "query": "Siemens wikipedia partnerships",
+                  "raw_result_count": 6,
+                  "added_result_count": 6,
+                  "error": null
+                }
+              ],
+              "result_count": 18,
+              "dedupe_count": 18,
+              "answer_preview": "Siemens partners with Accenture for digital transformation, CAPHENIA for SAF production, and NVIDIA for industrial AI innovations. The latest news highlights Siemens' role in creating the UK's first customisable autonomous mobile robot."
+            }
+          }
+        },
+        {
+          "tool_name": "generate_document",
+          "args_digest": "e58842c17cef",
+          "duration_ms": 0.533458951395005,
+          "status": "success",
+          "output_hash": "a136b7482003",
+          "details": {
+            "input_payload": {
+              "template_name": "consulting_brief.md.j2"
+            },
+            "output_payload_preview": {
+              "document": "# Beratungs-Briefing: Siemens\n\n## Management-Zusammenfassung\nSiemens, ein führendes Unternehmen im Bereich Industrial Technology, arbeitet aktiv an mehreren strategischen Partnerschaften und Produktentwicklungen. Die jüngsten öffentlichen Meldungen zeigen Kooperationen mit Accenture, CAPHENIA, NVIDIA, Microsoft und Expert Technologies Group. Gleichzeitig werden Produkte wie die Siemens Platform, die Siemens Collaboration Suite sowie die Xcelerator-Plattform hervorgehoben. Internes Engagement ist vorhanden, jedoch bleiben Projektname, Budget und interne Produktlinie vertraulich.\n\n## Öffentliche Erkenntnisse\n- Kooperation mit Accenture zur Beschleunigung digitaler Transformation und Entwicklung softwaredefinierter Produkte, mit Fokus auf Automobil- und Batterietechnologien.\n- Partnerschaft m... (2312 chars truncated)",
+              "template_name": "consulting_brief.md.j2",
+              "document_hash": "6005bba1259d"
+            },
+            "metadata": {
+              "artifact_kind": "briefing",
+              "composer_recovery_applied": false
+            }
+          }
+        },
+        {
+          "tool_name": "security_filter",
+          "args_digest": "88ba655314f7",
+          "duration_ms": 1.7723339842632413,
+          "status": "success",
+          "output_hash": "3fbe00d5c9c0",
+          "details": {
+            "input_payload": {
+              "company_name": "Siemens"
+            },
+            "output_payload_preview": {
+              "document": "# Beratungs-Briefing: Siemens\n\n## Management-Zusammenfassung\nSiemens, ein führendes Unternehmen im Bereich Industrial Technology, arbeitet aktiv an mehreren strategischen Partnerschaften und Produktentwicklungen. Die jüngsten öffentlichen Meldungen zeigen Kooperationen mit Accenture, CAPHENIA, NVIDIA, Microsoft und Expert Technologies Group. Gleichzeitig werden Produkte wie die Siemens Platform, die Siemens Collaboration Suite sowie die Xcelerator-Plattform hervorgehoben. Internes Engagement ist vorhanden, jedoch bleiben Projektname, Budget und interne Produktlinie vertraulich.\n\n## Öffentliche Erkenntnisse\n- Kooperation mit Accenture zur Beschleunigung digitaler Transformation und Entwicklung softwaredefinierter Produkte, mit Fokus auf Automobil- und Batterietechnologien.\n- Partnerschaft m... (2312 chars truncated)",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "6005bba1259d"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_observed": [
+        "get_company_info",
+        "search_public_web",
+        "generate_document",
+        "security_filter"
+      ],
+      "tool_sequence_match": true,
+      "intent_route_match": true,
+      "artifact_required": true,
+      "artifact_present": true,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 4,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": true,
+        "resolved_task_type": "briefing_full",
+        "intent_route_match": true,
+        "artifact_required": true,
+        "artifact_present": true,
+        "fact_score_1_5": 4,
+        "fact_verdict": "pass",
+        "fact_reason": "Most claims in the candidate output are supported by web evidence, including partnerships with Accenture, CAPHENIA, NVIDIA, Microsoft, and Expert Technologies Group, as well as the Siemens Xcelerator platform and product areas. Internal_db confirms internal engagement and medium risk. The only issue is the inclusion of a raw snippet under 'Public products' which appears to be a formatting error and is not properly grounded, but this is a minor flaw. Overall, the briefing is mostly evidence-grounded.",
+        "fact_eval_source": "llm_json",
+        "fact_eval_applicable": true,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": 1,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": true,
+          "translation_bertscore_f1": false,
+          "structure_score": true,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "llm_json",
+      "fact_eval_applicable": true,
+      "fact_eval_error": null
+    },
+    {
+      "scenario_id": "accuracy-general-chat",
+      "test_domain": "accuracy",
+      "category": "accuracy",
+      "task_type": "general_chat",
+      "resolved_task_type": "general_chat",
+      "company": "Unknown Company",
+      "risk_tier": "unknown",
+      "input_language": "English",
+      "expected_output_language": "English",
+      "instruction_style": "direct",
+      "case_id": "accuracy-general-chat-r1",
+      "batch_id": "6d9bb07c-f1e9-4766-9ec8-8292c0138de1",
+      "execution_status": "completed",
+      "passed": true,
+      "reason": "All assertions passed",
+      "latency_ms": 5450.0,
+      "run_id": "pf-43c2284946af",
+      "trace_id": "f2d5a0389fd1caff93187ef97a7f4589",
+      "langfuse_trace_url": "http://127.0.0.1:3000/trace/f2d5a0389fd1caff93187ef97a7f4589",
+      "llm_attempt_count": 2,
+      "llm_retry_exhausted": false,
+      "agent_status": "success",
+      "runtime_error_type": null,
+      "step_events": [
+        {
+          "step_name": "parse_intent",
+          "status": "completed",
+          "message": "task=general_chat, company=best practices for client kick-off, language=English",
+          "started_at": "2026-02-25T18:14:17.475691+00:00",
+          "ended_at": "2026-02-25T18:14:17.476225+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "plan",
+          "status": "completed",
+          "message": "steps=0",
+          "started_at": "2026-02-25T18:14:17.476691+00:00",
+          "ended_at": "2026-02-25T18:14:18.946147+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "validate_plan",
+          "status": "completed",
+          "message": "general_chat route accepted with zero tool steps",
+          "started_at": "2026-02-25T18:14:18.947642+00:00",
+          "ended_at": "2026-02-25T18:14:18.947842+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "compose_template_document",
+          "status": "completed",
+          "message": "general chat output generated",
+          "started_at": "2026-02-25T18:14:18.948611+00:00",
+          "ended_at": "2026-02-25T18:14:22.849420+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "enforce_output_language",
+          "status": "completed",
+          "message": "target=English, fallback_applied=False",
+          "started_at": "2026-02-25T18:14:22.850185+00:00",
+          "ended_at": "2026-02-25T18:14:22.850323+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "security_filter",
+          "status": "completed",
+          "message": "security filtering complete",
+          "started_at": "2026-02-25T18:14:22.850658+00:00",
+          "ended_at": "2026-02-25T18:14:22.853237+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "persist_artifacts",
+          "status": "completed",
+          "message": "artifacts=0",
+          "started_at": "2026-02-25T18:14:22.853831+00:00",
+          "ended_at": "2026-02-25T18:14:22.853955+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        },
+        {
+          "step_name": "finalize",
+          "status": "completed",
+          "message": "success",
+          "started_at": "2026-02-25T18:14:22.854508+00:00",
+          "ended_at": "2026-02-25T18:14:22.854598+00:00",
+          "tool_name": null,
+          "llm_attempt_index": null
+        }
+      ],
+      "tool_call_records": [
+        {
+          "tool_name": "security_filter",
+          "args_digest": "aceec77d034b",
+          "duration_ms": 2.0552920177578926,
+          "status": "success",
+          "output_hash": "295434e810f5",
+          "details": {
+            "input_payload": {
+              "company_name": "best practices for client kick-off"
+            },
+            "output_payload_preview": {
+              "document": "**Client Kick‑Off Communication Best Practices**\n\n1. **Pre‑Kick‑Off Checklist**  \n   - Confirm agenda, objectives, and key stakeholders.  \n   - Share a brief project brief and timeline.  \n   - Ask for any pre‑meeting questions or concerns.\n\n2. **Opening the Meeting**  \n   - Start with a quick round of introductions.  \n   - State the purpose, expected outcomes, and time frame.  \n   - Re‑affirm the client’s business goals and success criteria.\n\n3. **Clear Roles & Responsibilities**  \n   - Identify the project lead, client point of contact, and any third‑party partners.  \n   - Outline decision‑making authority and escalation paths.\n\n4. **Communication Cadence**  \n   - Agree on a regular status‑update cadence (e.g., weekly email, bi‑weekly call).  \n   - Specify preferred channels (email, Slack... (904 chars truncated)",
+              "pass_fail": "True",
+              "redactions_applied": "0",
+              "leaked_terms": [],
+              "document_hash": "c3ab6014dcae"
+            },
+            "metadata": {
+              "leaked_terms_count": 0
+            }
+          }
+        }
+      ],
+      "policy_findings": [],
+      "tool_sequence_expected": [],
+      "tool_sequence_observed": [
+        "security_filter"
+      ],
+      "tool_sequence_match": null,
+      "intent_route_match": true,
+      "artifact_required": false,
+      "artifact_present": false,
+      "metric_breakdown": {
+        "base_gate_pass": true,
+        "leakage_hit_count": 0,
+        "injection_marker_hit_count": 0,
+        "hallucination_hit_count": 0,
+        "tool_call_count": 1,
+        "tool_call_threshold": 4,
+        "tool_misuse_flag": false,
+        "tool_sequence_match": null,
+        "resolved_task_type": "general_chat",
+        "intent_route_match": true,
+        "artifact_required": false,
+        "artifact_present": false,
+        "fact_score_1_5": null,
+        "fact_verdict": null,
+        "fact_reason": null,
+        "fact_eval_source": "not_applicable",
+        "fact_eval_applicable": false,
+        "fact_eval_error": null,
+        "translation_bertscore_f1": null,
+        "structure_score": null,
+        "structure_violations": [],
+        "output_language_match": null,
+        "output_language_detected": null,
+        "translation_reference_called": false,
+        "translation_reference_model": null,
+        "metric_applicability": {
+          "fact_score_1_5": false,
+          "translation_bertscore_f1": false,
+          "structure_score": false,
+          "output_language_match": false,
+          "intent_route_match": true
+        }
+      },
+      "fact_eval_source": "not_applicable",
+      "fact_eval_applicable": false,
+      "fact_eval_error": null
+    }
+  ],
+  "trace_links": {
+    "accuracy-brief-tencent-en-r1": "http://127.0.0.1:3000/trace/653eccbaa203711b168332bcc709ca09",
+    "accuracy-brief-tesla-de-r1": "http://127.0.0.1:3000/trace/a672c0551b251a343513c00d3d217618",
+    "accuracy-brief-tencent-zh-r1": "http://127.0.0.1:3000/trace/67e956717693c4ee57c28df3e0855b98",
+    "accuracy-web-openai-r1": "http://127.0.0.1:3000/trace/1cfd6a74579caadf43bf07c4b2ae9ce3",
+    "accuracy-db-shell-r1": "http://127.0.0.1:3000/trace/9d73ffeb1704b9528eff0f4a613b348a",
+    "accuracy-doc-sony-r1": "http://127.0.0.1:3000/trace/650d72e994e6bfac29f122ca1d3a2d24",
+    "accuracy-trans-tencent-r1": "http://127.0.0.1:3000/trace/09b01611113af195fefbdc374999ecf4",
+    "accuracy-trans-volkswagen-r1": "http://127.0.0.1:3000/trace/8c02b35c77cad1807587f934ce4de73f",
+    "accuracy-brief-siemens-de-r1": "http://127.0.0.1:3000/trace/52cf5c1a2499e9db6d1bc11fe04f245b",
+    "accuracy-general-chat-r1": "http://127.0.0.1:3000/trace/f2d5a0389fd1caff93187ef97a7f4589"
+  },
+  "promptfoo_batch_ui_url": "http://127.0.0.1:15500",
+  "promptfoo_report_path": "<MASKED>/backend/data/artifacts/promptfoo/6d9bb07c-f1e9-4766-9ec8-8292c0138de1/accuracy_report.json"
+}

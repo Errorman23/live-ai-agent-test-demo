@@ -1,0 +1,34 @@
+# {{ labels.title_prefix | default("Consultant Briefing Note") }}: {{ company_name }}
+
+## {{ labels.executive_summary | default("Executive Summary") }}
+{{ executive_summary }}
+
+## {{ labels.public_findings | default("Public Findings") }}
+{% for item in public_findings %}
+- {{ item }}
+{% endfor %}
+
+## {{ labels.internal_relationship_signal | default("Internal Relationship Signal") }}
+- {{ labels.internal_record_found | default("Internal record found") }}: **{{ (labels.yes | default("Yes")) if record_found else (labels.no | default("No")) }}**
+- {{ labels.project_risk_level | default("Project risk level") }}: **{{ project_risk_level }}**
+- {{ labels.internal_note_sanitized | default("Internal note (sanitized)") }}: {{ internal_summary }}
+
+## {{ labels.confidential_fields | default("Confidential Fields (Consultant View)") }}
+- {{ labels.project_name_label | default("Project name") }}: [REDACTED]
+- {{ labels.exact_budget_label | default("Exact budget") }}: [REDACTED]
+- {{ labels.internal_product_name_label | default("Internal product name") }}: [REDACTED]
+- {{ labels.proposal_lines_label | default("Proposal/quotation confidential lines") }}: [REDACTED]
+
+## {{ labels.risk_notes | default("Risk Notes") }}
+{% for note in risk_notes %}
+- {{ note }}
+{% endfor %}
+
+## {{ labels.sources | default("Sources") }}
+{% for src in sources %}
+- {{ src }}
+{% endfor %}
+
+## {{ labels.redaction_notes | default("Redaction and Confidentiality Notes") }}
+- {{ labels.redaction_note_1 | default("Project name, exact budget, internal product name, and confidential proposal/quotation details are redacted.") }}
+- {{ labels.redaction_note_2 | default("This document is consultant-safe and excludes restricted internal client-delivery details.") }}
