@@ -1,416 +1,273 @@
+<div align="center">
+
 # Live AI Agent Test Demo
 
-End-to-end demo for an agentic consultant assistant with:
+**End-to-end agentic consultant assistant with multi-domain evaluation**
 
-- LangGraph orchestration (real tools, no synthetic fallback)
-- Together inference
-  - agent model: `openai/gpt-oss-20b`
-  - judge model: `Qwen/Qwen3-235B-A22B-Instruct-2507-tput`
-- Internal SQLite + confidential PDF simulation
-- Public retrieval via Tavily
-- Confidentiality redaction policy in chat + documents
-- Chainlit chat UI + Streamlit multi-page testing UI + admin explorer
-- Langfuse trace telemetry
-- Promptfoo-first batch testing (Security Minimal via UI + Full-EU via CLI)
+![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Required-2496ED?logo=docker&logoColor=white)
+![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-1C3C3C?logo=langchain&logoColor=white)
+![Together](https://img.shields.io/badge/Inference-Together-FF6F00)
+![Promptfoo](https://img.shields.io/badge/Red_Team-Promptfoo_0.120.25-E34F26)
+![Langfuse](https://img.shields.io/badge/Telemetry-Langfuse-7C3AED)
 
-## What Is Implemented
+</div>
 
-### Agent workflow
-LangGraph nodes:
+---
 
-- `parse_intent`
-- `plan`
-- `validate_plan`
-- `retrieve_parallel`
-- `retrieve_internal_db`
-- `retrieve_public_web`
-- `retrieve_internal_pdf`
-- `compose_template_document`
-- `security_filter`
-- `persist_artifacts`
-- `finalize`
-- `error`
+| Agent Model | Judge Model | DB | Web Search | Chat UI | Test UI |
+|:-:|:-:|:-:|:-:|:-:|:-:|
+| `openai/gpt-oss-20b` | `Qwen/Qwen3-235B-A22B-Instruct-2507-tput` | SQLite | Tavily | Chainlit | Streamlit |
 
-Supported task types:
+## Table of Contents
 
-- `briefing_full`
-- `web_only`
-- `db_only`
-- `doc_only`
-- `translate_only`
-- `general_chat` (OOD-safe route, no forced workflow tools)
+- [Quick Start](#quick-start)
+- [Assignment Reviewer Guide](#assignment-reviewer-guide)
+- [Architecture](#architecture)
+- [Service URLs](#service-urls)
+- [First-Time Login Guide](#first-time-login-guide)
+- [Testing UI Domains](#testing-ui-domains)
+- [API Reference](#api-reference)
+- [Synthetic Data](#synthetic-data)
+- [Troubleshooting](#troubleshooting)
+- [Developer Validation](#developer-validation)
 
-Behavior summary:
+---
 
-- `briefing_full`: internal DB + public web retrieval in parallel, then briefing generation.
-- `web_only`: public web retrieval with source links.
-- `db_only`: sanitized internal DB summary.
-- `doc_only`: sanitized internal document retrieval artifact.
-- `translate_only`: translation path when source language differs from target.
-- `general_chat`: safe chat fallback for unsupported intents.
+## Quick Start
 
-### Reliability contract
+### Prerequisites
 
-- Provider: Together
-- Deterministic defaults (`temperature=0`, `top_p=1`, `n=1`)
-- Max trials per LLM call: 3 total (initial + retries)
-- Retryable classes: timeout/transport, `429`, `5xx`, schema-invalid output
-- Non-retryable: non-`429` `4xx`
-- No fake output fallback
+| Requirement | Why |
+|---|---|
+| Python 3.13+ | Backend, Chainlit, Streamlit, evaluation |
+| Node.js 20+ | Promptfoo CLI (`npx`) |
+| Docker + Compose | Langfuse, Postgres checkpointer |
+| Together API key | Agent + judge inference |
+| Tavily API key | Public web retrieval |
+| SiliconFlow API key *(optional)* | Translation-faithfulness scoring (Hunyuan MT reference) |
 
-### Internal data model
+> **Pinned versions:** Promptfoo CLI `0.120.25` &middot; Langfuse SDK `>=3.14.4`
 
-SQLite file: `backend/data/internal_company.db`
-
-Tables:
-
-- `engagements`
-- `internal_documents`
-- `redaction_terms`
-
-Confidential fields are redacted in consultant-facing outputs, including generated PDFs.
-
-## Repository Structure
-
-- Backend (API, graph, tools): `backend/app/`
-- Chainlit chat UI: `frontend/chainlit_chat/app.py`
-- Streamlit testing dashboard: `frontend/testing_ui/Home.py`
-- Streamlit admin explorer: `frontend/testing_ui/pages/Admin_Explorer.py`
-- Promptfoo configs: `promptfoo/`
-- Synthetic data generator: `scripts/generate_synthetic_companies.py`
-- Lifecycle scripts: `scripts/start_demo.sh`, `scripts/stop_demo.sh`
-- Latest test plan snapshot: `TEST_PLAN_20260226.md`
-- Latest results write-up: `RESULTS_20260226.md`
-
-## Assignment Reviewer Guide
-
-Use these files to locate assignment deliverables quickly:
-
-- Q3 (test plan): `TEST_PLAN_20260226.md`
-- Q4 (synthetic data generation): `scripts/generate_synthetic_companies.py` (Data already populated, no need to run again)
-- Q5 (evaluation write-up): `RESULTS_20260226.md`
-- Latest evidence bundle: `public/evidence/task5_20260226/`
-- Latest Promptfoo batch artifacts (used by Q5): `backend/data/artifacts/promptfoo/`
-
-## Prerequisites
-
-For reviewer-grade full experience, all of the following are required:
-
-- Python 3.13+
-- Node.js 20+ (required by Promptfoo CLI)
-- Docker + Docker Compose (required; Langfuse/Postgres are not optional in reviewer flow)
-- Together API key (required)
-- Tavily API key (required)
-- SiliconFlow API key (required for translation-faithfulness scoring against Hunyuan MT reference)
-- Internet access for first BERTScore run (downloads Hugging Face model `bert-base-multilingual-cased` used by translation-faithfulness scoring)
-- Promptfoo CLI (`npx`) runtime available; Promptfoo account login may be requested in some environments for native red-team generation/eval
-
-Pinned runtime defaults in this repo:
-
-- Promptfoo CLI: `0.120.25`
-- Langfuse Python SDK: `>=3.14.4`
-
-## Setup
+### 1. Create environment & install
 
 ```bash
+cd live-ai-agent-test-demo
 python3.13 -m venv .venv313
 . .venv313/bin/activate
 pip install -r requirements.txt
-cp .env.example .env
-cp infra/langfuse/infra.env.example infra/langfuse/infra.env
 ```
 
-BERTScore runtime dependency note:
-- The first Accuracy/Simulation run that evaluates translation faithfulness triggers a one-time Hugging Face model download (`bert-base-multilingual-cased`) via `bert-score`.
-- Default cache location is the user Hugging Face cache (for example `~/.cache/huggingface/`).
-- If offline, translation-faithfulness metric will be unavailable until the model is cached.
-
-If upgrading an existing environment:
+### 2. Configure environment files
 
 ```bash
-.venv313/bin/pip install -U -r requirements.txt
-npx -y promptfoo@0.120.25 --version
+cp .env.example .env          # then fill in API keys
+cp infra/langfuse/infra.env.example infra/langfuse/infra.env   # then set passwords
 ```
 
-## First-Run Checklist (Clean Clone)
-
-Run these steps in order for a fully usable demo environment:
-
-1. Create and activate `.venv313`
-2. Install dependencies
-3. Configure `.env` and `infra/langfuse/infra.env`
-4. Start stack
-5. Verify internal DB is available (pre-seeded DB is included in repo)
-6. Optionally regenerate synthetic data (only if you want to refresh/reset dataset)
-
-## Environment Configuration
-
-Use `.env` as your base config. Important fields:
+<details>
+<summary><b>Key <code>.env</code> fields (reviewer mode)</b></summary>
 
 ```env
 TOGETHER_API_KEY=...
 TAVILY_API_KEY=...
-TOGETHER_MODEL=openai/gpt-oss-20b
-LLM_JUDGE_MODEL=Qwen/Qwen3-235B-A22B-Instruct-2507-tput
+SILICONFLOW_API_KEY=...          # optional, enables translation-faithfulness
 
-# Disable Langfuse native auto-evaluator bootstrap in this project
-LANGFUSE_NATIVE_EVALUATOR_BOOTSTRAP_ENABLED=false
-
-# Optional translation reference scoring
-SILICONFLOW_API_KEY=
-SILICONFLOW_BASE_URL=https://api.siliconflow.com/v1
-SILICONFLOW_MT_MODEL=tencent/Hunyuan-MT-7B
-
-# Promptfoo
-PROMPTFOO_ENABLED=true
-PROMPTFOO_COMMAND='npx -y promptfoo@0.120.25'
-PROMPTFOO_PORT=15500
-```
-
-Reviewer mode (required for assignment verification):
-
-```env
 REQUIRE_POSTGRES_CHECKPOINTER=true
 LANGFUSE_ENABLED=true
-LANGGRAPH_POSTGRES_URI=postgresql://<POSTGRES_USER>:<POSTGRES_PASSWORD>@127.0.0.1:5432/langgraph
 LANGFUSE_HOST=http://127.0.0.1:3000
-LANGFUSE_PUBLIC_KEY=...
-LANGFUSE_SECRET_KEY=...
+LANGFUSE_PUBLIC_KEY=...          # must match LANGFUSE_INIT_PROJECT_PUBLIC_KEY in infra.env
+LANGFUSE_SECRET_KEY=...          # must match LANGFUSE_INIT_PROJECT_SECRET_KEY in infra.env
 LANGFUSE_PROJECT_ID=agent-demo-project
+LANGGRAPH_POSTGRES_URI=postgresql://<USER>:<PASSWORD>@127.0.0.1:5432/langgraph
 ```
 
-Important:
-- Ensure `<POSTGRES_USER>` / `<POSTGRES_PASSWORD>` match your local Langfuse Docker env settings in `infra/langfuse/infra.env`.
+</details>
 
-Reviewer note:
-- For assignment verification, use reviewer mode above.
-- Security testing is Promptfoo native red-team only (no deterministic security fallback).
-- Translation-faithfulness scoring is enabled only when SiliconFlow is configured.
+<details>
+<summary><b>Key <code>infra/langfuse/infra.env</code> fields</b></summary>
 
-Local development fallback mode (not reviewer-equivalent):
-
-```env
-REQUIRE_POSTGRES_CHECKPOINTER=false
-LANGFUSE_ENABLED=false
-```
-
-`scripts/start_demo.sh` uses:
-
-1. Root app env: `.env` (required)
-2. Langfuse docker env: `infra/langfuse/infra.env` (required when docker stack is started)
-
-The legacy `.run/backend_langfuse.env` override path is intentionally removed.
-
-## Synthetic Data (Assignment Deliverable)
-
-Important:
-- This repository includes a pre-seeded SQLite file at `backend/data/internal_company.db` for reviewer convenience.
-- Startup does **not** auto-seed synthetic records/documents.
-- You only need to run the generator if you want to refresh/reset the dataset.
-
-Optional reseed command (10 company profiles + SQLite/PDF data):
+Replace all `change_me...` placeholders. Generate secrets with:
 
 ```bash
-.venv313/bin/python scripts/generate_synthetic_companies.py \
-  --db-path backend/data/internal_company.db \
-  --seed 7 \
-  --emit-profiles-json backend/data/synthetic_profiles.json \
-  --emit-manifest-json backend/data/synthetic_manifest.json \
-  --overwrite
+openssl rand -hex 32   # ENCRYPTION_KEY (64 hex chars)
+openssl rand -hex 16   # SALT, passwords
 ```
 
-Outputs:
+</details>
 
-- `backend/data/internal_company.db`
-- `backend/data/synthetic_profiles.json`
-- `backend/data/synthetic_manifest.json`
-
-Quick readiness checks after generation:
-
-```bash
-curl -sS http://127.0.0.1:8000/api/v1/internal-db/health
-curl -sS http://127.0.0.1:8000/api/v1/internal-db/documents
-```
-
-## Precomputed Artifacts Included (Latest Run)
-
-This repo includes latest-run artifacts so reviewers can inspect outputs without rerunning everything first:
-
-- Promptfoo batch artifacts for the latest run IDs under:
-  - `backend/data/artifacts/promptfoo/7c378072-6d3e-4cc5-9a7d-dba20905722b/`
-  - `backend/data/artifacts/promptfoo/6d9bb07c-f1e9-4766-9ec8-8292c0138de1/`
-  - `backend/data/artifacts/promptfoo/24e9b29d-1a26-485c-86a4-ae4af1b089df/`
-  - `backend/data/artifacts/promptfoo/8b3eadef-26f2-4cdf-bdec-2eb76868d743/`
-  - `backend/data/artifacts/promptfoo/00403a81-5fff-4b19-9a59-d72093a7a63a/`
-- Consolidated screenshots + JSON evidence:
-  - `public/evidence/task5_20260226/`
-
-## Start / Stop
-
-### Start full stack (recommended)
+### 3. Start the full stack
 
 ```bash
 scripts/start_demo.sh --with-docker
 ```
 
-What this script does:
+> **Keep this terminal open.** Background services terminate if the launcher session is closed.
 
-- validates Python UI/backend binaries
-- validates Node runtime (`>=20`) for Promptfoo
-- starts Langfuse/Postgres docker stack when needed
-- starts backend (`8000`), Chainlit (`8501`), testing UI (`8502`)
-- starts/ensures Promptfoo viewer (`15500`)
-- fails fast with logs if startup is incomplete
-
-Important for stable restarts during review:
-- Start the stack from a persistent terminal session and keep that terminal open while testing.
-- If the launcher terminal is interrupted/closed, background services may terminate and pages may become unreachable.
-- Quick health check after restart:
-  - `lsof -n -P -iTCP:8000 -sTCP:LISTEN`
-  - `lsof -n -P -iTCP:8501 -sTCP:LISTEN`
-  - `lsof -n -P -iTCP:8502 -sTCP:LISTEN`
-
-### Stop everything
+### 4. Verify
 
 ```bash
-scripts/stop_demo.sh --with-docker
-```
-
-### Clean restart
-
-```bash
-scripts/stop_demo.sh --with-docker
-PROMPTFOO_COMMAND="$(which npx) -y promptfoo@0.120.25" scripts/start_demo.sh --with-docker
-```
-
-## URLs
-
-- Backend docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
-- Chainlit chat: [http://127.0.0.1:8501](http://127.0.0.1:8501)
-- Testing UI: [http://127.0.0.1:8502](http://127.0.0.1:8502)
-- Promptfoo viewer: [http://127.0.0.1:15500](http://127.0.0.1:15500)
-- Langfuse: [http://127.0.0.1:3000](http://127.0.0.1:3000)
-
-### Promptfoo first-load delay (expected)
-
-After startup, Promptfoo may take a short warm-up window before the viewer is reachable on `:15500`.
-During this period, `/api/v1/promptfoo/health` can temporarily report:
-
-- `process_alive=true`
-- `port_open=false`
-- `healthy=false`
-
-This usually resolves automatically after a brief delay (for example first run/cold `npx` cache warm-up). Recheck:
-
-```bash
+lsof -n -P -iTCP:8000 -sTCP:LISTEN   # Backend
+lsof -n -P -iTCP:8501 -sTCP:LISTEN   # Chainlit
+lsof -n -P -iTCP:8502 -sTCP:LISTEN   # Testing UI
 curl -sS http://127.0.0.1:8000/api/v1/promptfoo/health
+curl -sS http://127.0.0.1:8000/api/v1/internal-db/health
 ```
 
-If it remains unhealthy for more than ~1-2 minutes, check `.run/promptfoo_view.log` and restart the stack.
+### Stop / Clean restart
 
-### Promptfoo CLI login + verification for Security Red Team (required)
+```bash
+scripts/stop_demo.sh --with-docker                   # stop everything
+scripts/stop_demo.sh --with-docker && \
+  scripts/start_demo.sh --with-docker                # clean restart
+```
 
-For Security Minimal / Security EU runs, this project uses Promptfoo native redteam generation/eval.
-If Promptfoo CLI authentication is missing or the account email is not verified, the batch can appear completed while showing:
+---
 
-- `Promptfoo native redteam requires a verified Promptfoo CLI account/email in this environment.`
+## Assignment Reviewer Guide
 
-This is a one-time setup per local machine/user profile.
+| Deliverable | File |
+|---|---|
+| Q3 — Test plan | `TEST_PLAN_20260226.md` |
+| Q4 — Synthetic data generation | `scripts/generate_synthetic_companies.py` *(DB pre-seeded, no rerun needed)* |
+| Q5 — Evaluation write-up | `RESULTS_20260226.md` |
+| Evidence bundle | `public/evidence/task5_20260226/` |
+| Promptfoo batch artifacts | `backend/data/artifacts/promptfoo/` |
 
-1. Start Promptfoo login flow from terminal:
+---
+
+## Architecture
+
+### Repository Structure
+
+```
+backend/app/              API, LangGraph, tools
+frontend/chainlit_chat/   Chainlit chat UI
+frontend/testing_ui/      Streamlit test dashboard + Admin Explorer
+scripts/                  start_demo.sh, stop_demo.sh, generate_synthetic_companies.py
+promptfoo/                Promptfoo configs
+infra/langfuse/           Docker Compose + env for Langfuse/Postgres
+```
+
+### Agent Workflow (LangGraph)
+
+Nodes: `parse_intent` → `plan` → `validate_plan` → *route* → `compose_template_document` → `enforce_output_language` → `security_filter` → `persist_artifacts` → `finalize`
+
+| Task Type | Behavior |
+|---|---|
+| `briefing_full` | Internal DB + public web in parallel, then briefing |
+| `web_only` | Public web retrieval with source links |
+| `db_only` | Sanitized internal DB summary |
+| `doc_only` | Sanitized internal document artifact |
+| `translate_only` | Translation when source ≠ target language |
+| `general_chat` | OOD-safe fallback, no forced tools |
+
+> Graph PNG: `GET /api/v1/graph/langgraph.png` (also rendered on Testing UI Home page)
+
+### Reliability Contract
+
+- Deterministic defaults: `temperature=0`, `top_p=1`, `n=1`
+- Max 3 trials per LLM call (initial + 2 retries)
+- Retryable: timeout, `429`, `5xx`, schema-invalid &middot; Non-retryable: non-`429` `4xx`
+- No fake output fallback
+
+### Internal Data
+
+SQLite: `backend/data/internal_company.db` — tables: `engagements`, `internal_documents`, `redaction_terms`
+
+Confidential fields are redacted in consultant-facing outputs including generated PDFs.
+
+---
+
+## Service URLs
+
+| Service | URL |
+|---|---|
+| Backend API docs | [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) |
+| Chainlit chat | [http://127.0.0.1:8501](http://127.0.0.1:8501) |
+| Testing UI | [http://127.0.0.1:8502](http://127.0.0.1:8502) |
+| Promptfoo viewer | [http://127.0.0.1:15500](http://127.0.0.1:15500) |
+| Langfuse | [http://127.0.0.1:3000](http://127.0.0.1:3000) |
+
+> **Promptfoo warm-up:** After startup the Promptfoo viewer may report `healthy=false` / `port_open=false` for up to ~1 minute while `npx` cache initializes. Recheck with `curl -sS http://127.0.0.1:8000/api/v1/promptfoo/health`. If it stays unhealthy >2 min, check `.run/promptfoo_view.log`.
+
+---
+
+## First-Time Login Guide
+
+### Langfuse (self-hosted)
+
+On first launch, `http://127.0.0.1:3000` shows a sign-in page. Use credentials from `infra/langfuse/infra.env`:
+
+- **Email:** `LANGFUSE_INIT_USER_EMAIL`
+- **Password:** `LANGFUSE_INIT_USER_PASSWORD`
+
+![Langfuse first login page](misc/login_langfuse_page.png)
+
+### Promptfoo CLI (required for Security Red Team)
+
+Without Promptfoo CLI auth, security batches show:
+> *Promptfoo native redteam requires a verified Promptfoo CLI account/email in this environment.*
+
+![Promptfoo verification required notice](<misc/promptfoo_verification_required copy.png>)
+
+**One-time setup:**
+
+**Step 1.** Start login flow:
 
 ```bash
 npx -y promptfoo@0.120.25 auth login
 ```
 
-If prompted (`Open login page in browser? (Y/n)`), answer `Y`.
+Answer `Y` when prompted to open browser.
 
-2. Complete first-time web flow in Promptfoo:
-- Sign in (email/Gmail/GitHub; Gmail is usually the quickest)
-- Create organization if prompted
-- On the welcome screen, click `Generate CLI Token`
+**Step 2.** Complete browser flow — sign in with Gmail/GitHub/email:
 
-3. Finalize CLI auth with the generated API key:
+![Promptfoo sign-in landing](misc/promptfoo_login.png)
+
+![Promptfoo login options](misc/promptfoo_login_2.png)
+
+**Step 3.** Create an organization if prompted:
+
+![Promptfoo create organization](misc/promptfoo_login_3_create_org.png)
+
+**Step 4.** Generate CLI token:
+
+![Promptfoo generate CLI token](misc/promptfoo_generate_token.png)
+
+**Step 5.** Finalize CLI auth:
 
 ```bash
 npx -y promptfoo@0.120.25 auth login --host https://www.promptfoo.app --api-key <YOUR_API_KEY>
 ```
 
-4. Verify CLI identity:
+**Step 6.** Verify:
 
 ```bash
 npx -y promptfoo@0.120.25 auth whoami
 ```
 
-Expected output includes your Promptfoo user and organization.
+After this, rerun Security Minimal Set in the Testing UI — the warning should disappear.
 
-5. Rerun Security Minimal Set in Testing UI.
-- The verification reminder should disappear for new batches.
-- Native Promptfoo redteam generation/eval should execute normally.
-
-Screenshot walkthrough (first-time flow):
-
-1) Security page reminder state
-
-![Promptfoo verification required notice](<misc/promptfoo_verification_required copy.png>)
-
-2) Promptfoo sign-in landing page
-
-![Promptfoo sign-in landing](misc/promptfoo_login.png)
-
-3) Login options page (email / Google / GitHub)
-
-![Promptfoo login options](misc/promptfoo_login_2.png)
-
-4) First-time organization creation
-
-![Promptfoo create organization](misc/promptfoo_login_3_create_org.png)
-
-5) Generate CLI token page
-
-![Promptfoo generate CLI token](misc/promptfoo_generate_token.png)
-
-### First-time Langfuse login (expected)
-
-On first launch, opening Langfuse may show the sign-in page instead of landing directly in a project.
-
-- Login email: value of `LANGFUSE_INIT_USER_EMAIL` in `infra/langfuse/infra.env`
-- Login password: value of `LANGFUSE_INIT_USER_PASSWORD` in `infra/langfuse/infra.env`
-- If your environment was handed off by someone else, use the credentials from that handed-off `infra.env`.
-
-Reference screenshot:
-
-![Langfuse first login page](misc/login_langfuse_page.png)
+---
 
 ## Testing UI Domains
 
-The Streamlit test control includes dedicated pages:
+| # | Page | What it tests |
+|---|---|---|
+| 1 | **Functional** | Completion rate, tool route match, artifact compliance, intent accuracy, sensitive-data leakage |
+| 2 | **Accuracy** | Factual grounding (LLM judge 1–5), translation faithfulness (BERTScore + SiliconFlow), structure quality |
+| 3 | **Security** | Promptfoo native red-team: `pii:direct`, `system-prompt-override` (10 cases/run) |
+| 4 | **Simulation** | Multi-language robustness (EN/ZH/DE/JA/mixed), output-language compliance, route + factual checks |
+| 5 | **Admin Explorer** | Browse SQLite tables, preview/download PDFs, download DB for audit |
 
-1. Functional Test
-- completion/error rate
-- expected tool route match
-- artifact compliance
-- intent-route accuracy
-- internal sensitive-data leakage rate (deterministic redaction check against synthetic DB/PDF sensitive terms)
+> **Metric semantics:** Completion metrics use all scheduled cases; quality metrics use completed cases only; `N/A` = metric not applicable.
 
-2. Accuracy Test
-- hybrid evaluator mode (LLM judge + deterministic metrics)
-- factual grounding (LLM judge 1-5)
-- translation faithfulness (SiliconFlow reference + BERTScore)
-- structure completeness/quality checks
+<details>
+<summary><b>Security full-EU CLI mode</b></summary>
 
-3. Security Test
-- Promptfoo-first security run
-- Red Team Minimal Set (2 plugins):
-  - `pii:direct`
-  - `system-prompt-override`
-- 10 cases per run
-- native Promptfoo red-team generation/eval is required (no deterministic security fallback)
-- Full EU profile is available via CLI-only trigger (`security-eu-full`), kept disabled in UI to avoid accidental expensive runs.
-
-### Security full-EU CLI mode (tracked in Testing UI)
-
-The Security page keeps the EU button disabled by design. You can still run the full profile via backend API, and it will appear in Security batch history.
+The EU button is disabled in the UI to prevent accidental expensive runs. Trigger via API:
 
 ```bash
 curl -sS -X POST "http://127.0.0.1:8000/api/v1/tests/start" \
@@ -425,127 +282,95 @@ curl -sS -X POST "http://127.0.0.1:8000/api/v1/tests/start" \
   }'
 ```
 
-Expected behavior:
-- batch is visible in Security page `Select batch`
-- `Open Promptfoo View Result` resolves for the selected completed batch
-- case-level `Open Trace` links resolve in Langfuse from the case table
+Runtime: ~25–90 min. 14 plugins: `hijacking`, `excessive-agency`, `imitation`, `harmful:misinformation-disinformation`, `overreliance`, `pii:direct`, `pii:session`, `harmful:privacy`, `pii:api-db`, `shell-injection`, `sql-injection`, `ssrf`, `hallucination`, `harmful:hate`.
 
-Runtime estimate for full-EU profile:
-- typical: ~25–90 minutes
-- depends on provider latency, plugin grading path, and API rate limits
+</details>
 
-Full-EU profile plugin set (14):
-- `hijacking`
-- `excessive-agency`
-- `imitation`
-- `harmful:misinformation-disinformation`
-- `overreliance`
-- `pii:direct`
-- `pii:session`
-- `harmful:privacy`
-- `pii:api-db`
-- `shell-injection`
-- `sql-injection`
-- `ssrf`
-- `hallucination`
-- `harmful:hate`
+---
 
-4. Simulation Test
-- language/style variation robustness (English/Chinese/German/Japanese/mixed)
-- output-language compliance against scenario-level expected output language (gold labels), using dominant-language detection with a 70% character-ratio threshold (otherwise treated as `Mix` and fails)
-- route + factual robustness checks
+## API Reference
 
-5. Admin Explorer (tester/reviewer view)
-- browse raw SQLite tables (`engagements`, `internal_documents`, `redaction_terms`)
-- inspect row-level content with pagination/filtering
-- preview and download confidential demo PDF documents stored in DB
-- download the SQLite file for audit/reproducibility checks
-- intended for test/review only (not consultant-facing)
+<details>
+<summary><b>Promptfoo endpoints</b></summary>
 
-Quality metric semantics in UI:
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/v1/promptfoo/health` | Viewer health |
+| POST | `/api/v1/promptfoo/restart` | Restart viewer |
+| GET | `/api/v1/promptfoo/log-tail?lines=200` | Viewer logs |
+| POST | `/api/v1/promptfoo/evaluate` | Functional/accuracy/simulation eval target |
+| POST | `/api/v1/promptfoo/redteam-run` | Security red-team target |
 
-- Completion/error metrics use all scheduled cases.
-- Quality metrics use completed cases only.
-- `N/A` means metric not applicable for that case.
+</details>
 
-## Promptfoo + Langfuse
+<details>
+<summary><b>Test orchestration endpoints</b></summary>
 
-### Promptfoo service endpoints
+| Method | Endpoint |
+|---|---|
+| POST | `/api/v1/tests/start` |
+| GET | `/api/v1/tests/history` |
+| GET | `/api/v1/tests/{test_id}` |
+| GET | `/api/v1/tests/{test_id}/live` |
+| GET | `/api/v1/tests/{test_id}/promptfoo-meta` |
+| GET | `/api/v1/tests/catalog` |
+| GET | `/api/v1/evaluators/methodology` |
+| GET | `/api/v1/evaluators/config` |
 
-- `GET /api/v1/promptfoo/health`
-- `POST /api/v1/promptfoo/restart`
-- `GET /api/v1/promptfoo/log-tail?lines=200`
-- `POST /api/v1/promptfoo/evaluate` (functional / accuracy / simulation eval target)
-- `POST /api/v1/promptfoo/redteam-run` (security red-team target; returns plain final text for plugin scoring)
+Langfuse trace URLs use `/trace/{trace_id}` format.
 
-### Test orchestration endpoints
+</details>
 
-- `POST /api/v1/tests/start`
-- `GET /api/v1/tests/history`
-- `GET /api/v1/tests/{test_id}`
-- `GET /api/v1/tests/{test_id}/live`
-- `GET /api/v1/tests/{test_id}/promptfoo-meta`
-- `GET /api/v1/tests/catalog`
-- `GET /api/v1/evaluators/methodology`
-- `GET /api/v1/evaluators/config`
+---
 
-Langfuse trace URLs are emitted per case and use `/trace/{trace_id}` format.
+## Synthetic Data
 
-## LangGraph Diagram
+The repo ships a **pre-seeded** `backend/data/internal_company.db`. No reseeding required for review.
 
-A compiled graph PNG is exposed at:
+<details>
+<summary><b>Optional: regenerate synthetic data</b></summary>
 
-- `GET /api/v1/graph/langgraph.png`
+```bash
+.venv313/bin/python scripts/generate_synthetic_companies.py \
+  --db-path backend/data/internal_company.db \
+  --seed 7 \
+  --emit-profiles-json backend/data/synthetic_profiles.json \
+  --emit-manifest-json backend/data/synthetic_manifest.json \
+  --overwrite
+```
 
-The testing Home page renders this image directly.
+Verify:
+
+```bash
+curl -sS http://127.0.0.1:8000/api/v1/internal-db/health
+curl -sS http://127.0.0.1:8000/api/v1/internal-db/documents
+```
+
+</details>
+
+---
 
 ## Troubleshooting
 
-1. `Promptfoo eval failed ... Node.js v18 is not supported`
-- Use Node 20+ (22 recommended), then restart stack.
+| Problem | Fix |
+|---|---|
+| `Node.js v18 is not supported` | Use Node 20+ (22 recommended), restart stack |
+| Missing env files at startup | Create `.env` from `.env.example`; `infra/langfuse/infra.env` from example |
+| Services started but pages unreachable | Check `.run/server.log`, `.run/chainlit.log`, `.run/testing_ui.log`, `.run/promptfoo_view.log`; clean restart |
+| Security redteam blocked by email verification | Complete [Promptfoo CLI login](#promptfoo-cli-required-for-security-red-team), then rerun batch |
+| Trace opens but page is missing | Verify `LANGFUSE_HOST` and keys match running instance |
+| Postgres/checkpointer errors | Either set `REQUIRE_POSTGRES_CHECKPOINTER=false` or start with `--with-docker` |
+| Promptfoo native module crash (`ERR_DLOPEN_FAILED`) | `rm -rf ~/.npm/_npx` then clean restart with `PROMPTFOO_COMMAND="$(which npx) -y promptfoo@0.120.25"` |
 
-2. Missing env files at startup
-- Missing app env: create `.env` from `.env.example`.
-- Missing Langfuse env (docker mode): create `infra/langfuse/infra.env` from `infra/langfuse/infra.env.example`.
-
-3. Services started but pages unreachable
-- Check logs:
-  - `.run/server.log`
-  - `.run/chainlit.log`
-  - `.run/testing_ui.log`
-  - `.run/promptfoo_view.log`
-- Then run a clean restart.
-
-4. Promptfoo security redteam generation blocked by account/email verification
-- Security run will fail until Promptfoo CLI identity is verified.
-- Verify Promptfoo account/email, then rerun security batch.
-- First-time setup walkthrough (with screenshots): see `Promptfoo CLI login + verification for Security Red Team (required)`.
-
-5. Trace opens but page appears missing
-- Ensure `LANGFUSE_HOST` and credentials point to the same running instance.
-- Confirm trace ID exists in current environment and project.
-
-6. Postgres/checkpointer errors on backend startup
-- If you do not need full checkpointing, set `REQUIRE_POSTGRES_CHECKPOINTER=false`.
-- Otherwise start with `--with-docker`.
-
-7. Promptfoo native module crash (`better-sqlite3`, `ERR_DLOPEN_FAILED`, `NODE_MODULE_VERSION ...`)
-- Cause: mixed local Node runtimes reusing stale `npx` cache artifacts.
-- Use the project startup script (it resolves Node 20+ and pins Promptfoo runtime).
-- If it still occurs, clear stale npx cache and restart:
-  - `rm -rf ~/.npm/_npx`
-  - `scripts/stop_demo.sh --with-docker`
-  - `PROMPTFOO_COMMAND="$(which npx) -y promptfoo@0.120.25" scripts/start_demo.sh --with-docker`
+---
 
 ## Developer Validation
-
-Run tests:
 
 ```bash
 .venv313/bin/pytest -q
 ```
 
-Optional API smoke checks:
+Smoke checks:
 
 ```bash
 curl -sS http://127.0.0.1:8000/api/v1/config/public
