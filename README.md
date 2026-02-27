@@ -4,14 +4,14 @@
 
 **End-to-end agentic consultant assistant with multi-domain evaluation**
 
-![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-Required-2496ED?logo=docker&logoColor=white)
-![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-1C3C3C?logo=langchain&logoColor=white)
-![Together](https://img.shields.io/badge/Inference-Together-FF6F00)
-![Promptfoo](https://img.shields.io/badge/Red_Team-Promptfoo_0.120.25-E34F26)
-![Langfuse](https://img.shields.io/badge/Telemetry-Langfuse-7C3AED)
-![License](https://img.shields.io/badge/License-AGPL--3.0-blue)
+[![Python](https://img.shields.io/badge/Python-3.13+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-20+-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
+[![Docker](https://img.shields.io/badge/Docker-Required-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
+[![LangGraph](https://img.shields.io/badge/Orchestration-LangGraph-1C3C3C?logo=langchain&logoColor=white)](https://langchain-ai.github.io/langgraph/)
+[![Together](https://img.shields.io/badge/Inference-Together-FF6F00)](https://www.together.ai/)
+[![Promptfoo](https://img.shields.io/badge/Red_Team-Promptfoo_0.120.25-E34F26)](https://www.promptfoo.dev/)
+[![Langfuse](https://img.shields.io/badge/Telemetry-Langfuse-7C3AED)](https://langfuse.com/)
+[![License](https://img.shields.io/badge/License-AGPL--3.0-blue)](LICENSE)
 
 </div>
 
