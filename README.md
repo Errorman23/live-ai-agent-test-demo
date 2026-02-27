@@ -25,6 +25,7 @@
 - [Quick Start](#quick-start)
 - [Assignment Reviewer Guide](#assignment-reviewer-guide)
 - [Architecture](#architecture)
+- [Agent Chat Demo](#agent-chat-demo)
 - [Service URLs](#service-urls)
 - [First-Time Login Guide](#first-time-login-guide)
 - [Testing UI Domains](#testing-ui-domains)
@@ -177,6 +178,39 @@ Nodes: `parse_intent` → `plan` → `validate_plan` → *route* → `compose_te
 SQLite: `backend/data/internal_company.db` — tables: `engagements`, `internal_documents`, `redaction_terms`
 
 Confidential fields are redacted in consultant-facing outputs including generated PDFs.
+
+---
+
+## Agent Chat Demo
+
+The Chainlit chat UI ([http://127.0.0.1:8501](http://127.0.0.1:8501)) is the consultant-facing interface for interacting with the agent.
+
+### Landing Page
+
+![Chainlit landing page](chainlit_materials/chainlit_sample_landing.png)
+
+### Sample Interactions
+
+| Task Type | Screenshot |
+|---|---|
+| **Briefing (in progress)** | ![Briefing in progress](chainlit_materials/chainlit_sample_briefing.png) |
+| **Briefing (completed)** | ![Briefing completed](chainlit_materials/chainlit_sample_briefing_completed.png) |
+| **Web Search** | ![Web search result](chainlit_materials/chainlit_sample_web_search.png) |
+| **Internal DB Retrieval** | ![DB retrieval](chainlit_materials/chainlit_sample_db_retrieval.png) |
+| **Document Retrieval** | ![Document retrieval](chainlit_materials/chainlit_sample_doc_retrieval.png) |
+| **Document Translation** | ![Document translation](chainlit_materials/chainlit_sample_translate_doc.png) |
+
+### Sample Generated Documents
+
+The agent produces PDF artifacts for briefing, document retrieval, and translation tasks. Confidential fields are redacted as `[REDACTED]`.
+
+| Document | Description |
+|---|---|
+| [Briefing (English)](chainlit_materials/briefing_doc_english.pdf) | Full company briefing with public findings and internal summary |
+| [Briefing (German)](chainlit_materials/briefing_doc_german.pdf) | Briefing output when target language is German |
+| [Document Retrieval (Chinese)](chainlit_materials/doc_retrieval_chinese.pdf) | Sanitized internal document in Chinese |
+| [Translation (JP to DE)](chainlit_materials/doc_translate_japanese_to_german.pdf) | Japanese internal document translated to German |
+| [Sanitized Proposal PDF](chainlit_materials/sanitized-proposal-pdf-1a46cf07b9a9.pdf) | Redacted internal proposal artifact |
 
 ---
 
