@@ -189,12 +189,17 @@ The Chainlit chat UI ([http://127.0.0.1:8501](http://127.0.0.1:8501)) is the con
 
 ![Chainlit landing page](chainlit_materials/chainlit_sample_landing.png)
 
+### Live Step Tracking
+
+When the agent runs, each workflow step is tracked in real time in the side panel. The screenshot below shows a completed briefing task with the full step timeline visible on the right:
+
+![Briefing with live step tracking](chainlit_materials/chainlit_sample_briefing_completed.png)
+
 ### Sample Interactions
 
 | Task Type | Screenshot |
 |---|---|
-| **Briefing (in progress)** | ![Briefing in progress](chainlit_materials/chainlit_sample_briefing.png) |
-| **Briefing (completed)** | ![Briefing completed](chainlit_materials/chainlit_sample_briefing_completed.png) |
+| **Briefing** | ![Briefing result](chainlit_materials/chainlit_sample_briefing.png) |
 | **Web Search** | ![Web search result](chainlit_materials/chainlit_sample_web_search.png) |
 | **Internal DB Retrieval** | ![DB retrieval](chainlit_materials/chainlit_sample_db_retrieval.png) |
 | **Document Retrieval** | ![Document retrieval](chainlit_materials/chainlit_sample_doc_retrieval.png) |
