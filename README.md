@@ -11,6 +11,7 @@
 ![Together](https://img.shields.io/badge/Inference-Together-FF6F00)
 ![Promptfoo](https://img.shields.io/badge/Red_Team-Promptfoo_0.120.25-E34F26)
 ![Langfuse](https://img.shields.io/badge/Telemetry-Langfuse-7C3AED)
+![License](https://img.shields.io/badge/License-AGPL--3.0-blue)
 
 </div>
 
@@ -33,6 +34,7 @@
 - [Synthetic Data](#synthetic-data)
 - [Troubleshooting](#troubleshooting)
 - [Developer Validation](#developer-validation)
+- [License](#license)
 
 ---
 
@@ -416,3 +418,9 @@ curl -sS http://127.0.0.1:8000/api/v1/config/public
 curl -sS http://127.0.0.1:8000/api/v1/tests/catalog
 curl -sS http://127.0.0.1:8000/api/v1/promptfoo/health
 ```
+
+---
+
+## License
+
+This project is licensed under the [GNU Affero General Public License v3.0](LICENSE).
