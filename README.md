@@ -23,7 +23,7 @@
 ## Table of Contents
 
 - [Quick Start](#quick-start)
-- [Assignment Reviewer Guide](#assignment-reviewer-guide)
+- [Reviewer Guide](#reviewer-guide)
 - [Architecture](#architecture)
 - [Agent Chat Demo](#agent-chat-demo)
 - [Service URLs](#service-urls)
@@ -126,7 +126,7 @@ scripts/stop_demo.sh --with-docker && \
 
 ---
 
-## Assignment Reviewer Guide
+## Reviewer Guide
 
 | Deliverable | File |
 |---|---|
