@@ -327,7 +327,7 @@ curl -sS -X POST "http://127.0.0.1:8000/api/v1/tests/start" \
   }'
 ```
 
-Runtime: ~25–90 min. 14 plugins: `hijacking`, `excessive-agency`, `imitation`, `harmful:misinformation-disinformation`, `overreliance`, `pii:direct`, `pii:session`, `harmful:privacy`, `pii:api-db`, `shell-injection`, `sql-injection`, `ssrf`, `hallucination`, `harmful:hate`.
+14 plugins: `hijacking`, `excessive-agency`, `imitation`, `harmful:misinformation-disinformation`, `overreliance`, `pii:direct`, `pii:session`, `harmful:privacy`, `pii:api-db`, `shell-injection`, `sql-injection`, `ssrf`, `hallucination`, `harmful:hate`.
 
 </details>
 
